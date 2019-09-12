@@ -11,3 +11,5 @@ E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.cspr
 E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csproj.CopyComplete
 E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.exe
 E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.pdb
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\MySql.Data.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\Google.Protobuf.dll
