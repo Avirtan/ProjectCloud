@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using MaterialSkin;
 
 
 
@@ -22,7 +23,10 @@ namespace ProjectCloud
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            var skin = MaterialSkinManager.Instance;
+            skin.AddFormToManage(this);
+            skin.Theme = MaterialSkinManager.Themes.DARK;
+            skin.ColorScheme = new ColorScheme(Primary.BlueGrey800,Primary.BlueGrey900,Primary.BlueGrey500,Accent.LightBlue200,TextShade.WHITE);
         }
     }
 }

@@ -1,0 +1,13 @@
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ProjectCloud.exe.config
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ProjectCloud.exe
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ProjectCloud.pdb
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\Bunifu_UI_v1.52.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\MaterialSkin.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csprojAssemblyReference.cache
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.Form1.resources
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.Properties.Resources.resources
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csproj.GenerateResource.cache
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csproj.CoreCompileInputs.cache
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csproj.CopyComplete
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.exe
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.pdb
