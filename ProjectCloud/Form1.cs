@@ -61,6 +61,7 @@ namespace ProjectCloud
         }
 
         private MySqlConnection conn;
+        private int flag = 0;
         public Form1()
         {
             InitializeComponent();
@@ -130,7 +131,7 @@ namespace ProjectCloud
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);
+                                //MessageBox.Show(ex.Message);
                             }
                         }
                         else
@@ -232,17 +233,50 @@ namespace ProjectCloud
             }
         }
         
-
         private void RestorePass_Click(object sender, EventArgs e)
         {
-            RestorePass.Enabled = false;
-            timer1.Enabled = true;
+            conn = Connection.GetDBConnection();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM user where (login = @login or email = @login)";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                command.Parameters.AddWithValue("@login", restore.Text);
+                command.Parameters.AddWithValue("@password", restore.Text);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    if ((restore.Text == reader[2].ToString() || restore.Text == reader[3].ToString()))
+                    {
+                        string text = "ВАШ ЛОГИН: " + Rlogin.Text + "\nПАРОЛЬ: " + reader[1].ToString();
+                        SendMail.Send(reader[3].ToString(), text, "Cloud69");
+                        MessageBox.Show("отпарвиь");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Close();
+            }
+            restore.Text = "";
+            flag++;
+            if (flag == 3)
+            {
+                RestorePass.Enabled = false;
+                timer1.Enabled = true;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             RestorePass.Enabled = true;
             timer1.Enabled = false;
+            flag = 0;
         }
     }
 }

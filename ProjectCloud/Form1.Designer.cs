@@ -50,7 +50,7 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.RestorePass = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.restore = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -221,14 +221,14 @@
             this.registr.AutoSize = true;
             this.registr.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.registr.Depth = 0;
-            this.registr.Location = new System.Drawing.Point(12, 391);
+            this.registr.Location = new System.Drawing.Point(7, 406);
             this.registr.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.registr.MouseState = MaterialSkin.MouseState.HOVER;
             this.registr.Name = "registr";
             this.registr.Primary = false;
-            this.registr.Size = new System.Drawing.Size(135, 36);
+            this.registr.Size = new System.Drawing.Size(210, 36);
             this.registr.TabIndex = 8;
-            this.registr.Text = "Регистрация";
+            this.registr.Text = "Зарегистрироваться";
             this.registr.UseVisualStyleBackColor = true;
             this.registr.Click += new System.EventHandler(this.Registr_Click);
             // 
@@ -357,7 +357,7 @@
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Controls.Add(this.RestorePass);
-            this.tabPage3.Controls.Add(this.materialSingleLineTextField1);
+            this.tabPage3.Controls.Add(this.restore);
             this.tabPage3.Controls.Add(this.materialLabel7);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
@@ -383,21 +383,21 @@
             this.RestorePass.UseVisualStyleBackColor = true;
             this.RestorePass.Click += new System.EventHandler(this.RestorePass_Click);
             // 
-            // materialSingleLineTextField1
+            // restore
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(215, 96);
-            this.materialSingleLineTextField1.Margin = new System.Windows.Forms.Padding(4);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(169, 28);
-            this.materialSingleLineTextField1.TabIndex = 1;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.restore.Depth = 0;
+            this.restore.Hint = "";
+            this.restore.Location = new System.Drawing.Point(215, 96);
+            this.restore.Margin = new System.Windows.Forms.Padding(4);
+            this.restore.MouseState = MaterialSkin.MouseState.HOVER;
+            this.restore.Name = "restore";
+            this.restore.PasswordChar = '\0';
+            this.restore.SelectedText = "";
+            this.restore.SelectionLength = 0;
+            this.restore.SelectionStart = 0;
+            this.restore.Size = new System.Drawing.Size(169, 28);
+            this.restore.TabIndex = 1;
+            this.restore.UseSystemPasswordChar = false;
             // 
             // materialLabel7
             // 
@@ -428,7 +428,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 1000000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
@@ -476,7 +476,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialFlatButton RestorePass;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField restore;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel hardpass;
         private System.Windows.Forms.Timer timer1;

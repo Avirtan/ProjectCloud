@@ -21,6 +21,7 @@ namespace ProjectCloud
             msg.Subject = subject;
             msg.Body = text;
             smtp.Send(msg);
+            msg.Dispose();
         }
     }
 }
