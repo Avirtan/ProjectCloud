@@ -59,9 +59,43 @@ namespace ProjectCloud
                 return false;
             }
         }
+        private Bitmap CreateImage(int Width, int Height)
+        {
+            Random rnd = new Random();
+            Bitmap result = new Bitmap(Width, Height);
+            int Xpos = rnd.Next(0, Width - 50);
+            int Ypos = rnd.Next(15, Height - 15);
+            Brush[] colors = { Brushes.Black,
+                     Brushes.Red,
+                     Brushes.RoyalBlue,
+                     Brushes.Green };
+            Graphics g = Graphics.FromImage((Image)result);
+            g.Clear(Color.Gray);
+            textCaptch = String.Empty;
+            string ALF = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+            for (int i = 0; i < 5; ++i)
+                textCaptch += ALF[rnd.Next(ALF.Length)];
+            g.DrawString(textCaptch,
+                         new Font("Arial", 15),
+                         colors[rnd.Next(colors.Length)],
+                         new PointF(Xpos, Ypos));
+            g.DrawLine(Pens.Black,
+                       new Point(0, 0),
+                       new Point(Width - 1, Height - 1));
+            g.DrawLine(Pens.Black,
+                       new Point(0, Height - 1),
+                       new Point(Width - 1, 0));
+            for (int i = 0; i < Width; ++i)
+                for (int j = 0; j < Height; ++j)
+                    if (rnd.Next() % 20 == 0)
+                        result.SetPixel(i, j, Color.White);
 
+            return result;
+        }
+        //--------------------------------------------------------------------//
         private MySqlConnection conn;
         private int flag = 0;
+        private string textCaptch = String.Empty;
         public Form1()
         {
             InitializeComponent();
@@ -69,6 +103,7 @@ namespace ProjectCloud
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
             var skin = MaterialSkinManager.Instance;
             skin.AddFormToManage(this);
             skin.Theme = MaterialSkinManager.Themes.DARK;
@@ -171,7 +206,7 @@ namespace ProjectCloud
             {
                 conn.Open();
                 string error = "";
-                ; if ((IsValidEmail(Rmail.Text) || Rmail.Text.Length == 0)  && Rpass.Text.Length >= 6 && Rlogin.Text != ""  && Rpass.Text == Rpass2.Text)
+                if ((IsValidEmail(Rmail.Text) || Rmail.Text.Length == 0)  && Rpass.Text.Length >= 6 && Rlogin.Text != ""  && Rpass.Text == Rpass2.Text && captch.Text == textCaptch)
                 {
                     string sql = "SELECT * FROM user";
                     MySqlCommand command = new MySqlCommand(sql, conn);
@@ -194,11 +229,11 @@ namespace ProjectCloud
                     {
                         //MOXHATKA@protonmail.com
                         conn.Open();
+                        string text = "ВАШ ЛОГИН: " + Rlogin.Text + "\nПАРОЛЬ: " + Rpass.Text;
+                        SendMail.Send(Rmail.Text, text, "Cloud69");
                         sql = "insert into user(login,pass,email) values('" + Rlogin.Text + "','" + Rpass.Text + "','"  + Rmail.Text + "')";
                         command = new MySqlCommand(sql, conn);
                         command.ExecuteNonQuery();
-                        string text = "ВАШ ЛОГИН: "+Rlogin.Text+"\nПАРОЛЬ: "+Rpass.Text;
-                        SendMail.Send(Rmail.Text,text,"Cloud69");
                         Rlogin.Text = "";
                         Rpass.Text = "";
                         Rmail.Text = "";
@@ -209,7 +244,7 @@ namespace ProjectCloud
                         MessageBox.Show(error);
                 }
                 else
-                    MessageBox.Show("одно из полей неверно заполнено или пароли не свопадают, пароль не менее 6 символов");
+                    MessageBox.Show("одно из полей неверно заполнено или пароли не свопадают, пароль не менее 6 символов либо невернно введена капча");
 
             }
             catch (Exception ex)
@@ -220,6 +255,7 @@ namespace ProjectCloud
             {
                 conn.Close();
             }
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void Rpass_KeyPress(object sender, KeyPressEventArgs e)
@@ -277,6 +313,11 @@ namespace ProjectCloud
             RestorePass.Enabled = true;
             timer1.Enabled = false;
             flag = 0;
+        }
+
+        private void resetCaptch_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
     }
 }
