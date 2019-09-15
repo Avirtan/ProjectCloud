@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace ProjectCloud
 {
-    public partial class Main : Form
+    public partial class Main : MaterialForm
     {
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,6 +38,9 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.resetCaptch = new System.Windows.Forms.Button();
+            this.captch = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.hardpass = new MaterialSkin.Controls.MaterialLabel();
             this.registr = new MaterialSkin.Controls.MaterialFlatButton();
             this.Rmail = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -54,14 +57,11 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.captch = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.resetCaptch = new System.Windows.Forms.Button();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // mtb
@@ -88,7 +88,7 @@
             this.tabPage1.Controls.Add(this.materialLabel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(480, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
@@ -116,7 +116,7 @@
             this.Apass.Location = new System.Drawing.Point(166, 156);
             this.Apass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Apass.Name = "Apass";
-            this.Apass.PasswordChar = '\0';
+            this.Apass.PasswordChar = '*';
             this.Apass.SelectedText = "";
             this.Apass.SelectionLength = 0;
             this.Apass.SelectionStart = 0;
@@ -199,10 +199,43 @@
             this.tabPage2.Controls.Add(this.materialLabel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(480, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регистрация";
+            // 
+            // resetCaptch
+            // 
+            this.resetCaptch.Location = new System.Drawing.Point(294, 238);
+            this.resetCaptch.Name = "resetCaptch";
+            this.resetCaptch.Size = new System.Drawing.Size(75, 23);
+            this.resetCaptch.TabIndex = 12;
+            this.resetCaptch.Text = "обновить";
+            this.resetCaptch.UseVisualStyleBackColor = true;
+            this.resetCaptch.Click += new System.EventHandler(this.resetCaptch_Click);
+            // 
+            // captch
+            // 
+            this.captch.Depth = 0;
+            this.captch.Hint = "";
+            this.captch.Location = new System.Drawing.Point(294, 286);
+            this.captch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.captch.Name = "captch";
+            this.captch.PasswordChar = '\0';
+            this.captch.SelectedText = "";
+            this.captch.SelectionLength = 0;
+            this.captch.SelectionStart = 0;
+            this.captch.Size = new System.Drawing.Size(131, 23);
+            this.captch.TabIndex = 11;
+            this.captch.UseSystemPasswordChar = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(294, 181);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(131, 50);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // hardpass
             // 
@@ -255,7 +288,7 @@
             this.Rpass2.Location = new System.Drawing.Point(9, 208);
             this.Rpass2.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass2.Name = "Rpass2";
-            this.Rpass2.PasswordChar = '\0';
+            this.Rpass2.PasswordChar = '*';
             this.Rpass2.SelectedText = "";
             this.Rpass2.SelectionLength = 0;
             this.Rpass2.SelectionStart = 0;
@@ -354,7 +387,7 @@
             this.tabPage3.Controls.Add(this.materialLabel7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(480, 381);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Восстановление пароля";
@@ -417,41 +450,8 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000000;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(294, 181);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 50);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // captch
-            // 
-            this.captch.Depth = 0;
-            this.captch.Hint = "";
-            this.captch.Location = new System.Drawing.Point(294, 286);
-            this.captch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.captch.Name = "captch";
-            this.captch.PasswordChar = '\0';
-            this.captch.SelectedText = "";
-            this.captch.SelectionLength = 0;
-            this.captch.SelectionStart = 0;
-            this.captch.Size = new System.Drawing.Size(131, 23);
-            this.captch.TabIndex = 11;
-            this.captch.UseSystemPasswordChar = false;
-            // 
-            // resetCaptch
-            // 
-            this.resetCaptch.Location = new System.Drawing.Point(294, 238);
-            this.resetCaptch.Name = "resetCaptch";
-            this.resetCaptch.Size = new System.Drawing.Size(75, 23);
-            this.resetCaptch.TabIndex = 12;
-            this.resetCaptch.Text = "обновить";
-            this.resetCaptch.UseVisualStyleBackColor = true;
-            this.resetCaptch.Click += new System.EventHandler(this.resetCaptch_Click);
             // 
             // Form1
             // 
@@ -468,9 +468,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

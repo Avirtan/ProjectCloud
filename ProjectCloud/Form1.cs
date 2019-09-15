@@ -66,9 +66,7 @@ namespace ProjectCloud
             int Xpos = rnd.Next(0, Width - 50);
             int Ypos = rnd.Next(15, Height - 15);
             Brush[] colors = { Brushes.Black,
-                     Brushes.Red,
-                     Brushes.RoyalBlue,
-                     Brushes.Green };
+                     Brushes.Red };
             Graphics g = Graphics.FromImage((Image)result);
             g.Clear(Color.Gray);
             textCaptch = String.Empty;
@@ -89,9 +87,14 @@ namespace ProjectCloud
                 for (int j = 0; j < Height; ++j)
                     if (rnd.Next() % 20 == 0)
                         result.SetPixel(i, j, Color.White);
-
             return result;
         }
+
+        private bool CheckNetwork()
+        {
+            return System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+        }
+
         //--------------------------------------------------------------------//
         private MySqlConnection conn;
         private int flag = 0;
@@ -206,7 +209,7 @@ namespace ProjectCloud
             {
                 conn.Open();
                 string error = "";
-                if ((IsValidEmail(Rmail.Text) || Rmail.Text.Length == 0)  && Rpass.Text.Length >= 6 && Rlogin.Text != ""  && Rpass.Text == Rpass2.Text && captch.Text == textCaptch)
+                if (IsValidEmail(Rmail.Text) && Rpass.Text.Length >= 6 && Rlogin.Text != "" && Rpass.Text == Rpass2.Text && captch.Text == textCaptch && CheckNetwork())
                 {
                     string sql = "SELECT * FROM user";
                     MySqlCommand command = new MySqlCommand(sql, conn);
@@ -231,7 +234,7 @@ namespace ProjectCloud
                         conn.Open();
                         string text = "ВАШ ЛОГИН: " + Rlogin.Text + "\nПАРОЛЬ: " + Rpass.Text;
                         SendMail.Send(Rmail.Text, text, "Cloud69");
-                        sql = "insert into user(login,pass,email) values('" + Rlogin.Text + "','" + Rpass.Text + "','"  + Rmail.Text + "')";
+                        sql = "insert into user(login,pass,email) values('" + Rlogin.Text + "','" + Rpass.Text + "','" + Rmail.Text + "')";
                         command = new MySqlCommand(sql, conn);
                         command.ExecuteNonQuery();
                         Rlogin.Text = "";
@@ -244,7 +247,7 @@ namespace ProjectCloud
                         MessageBox.Show(error);
                 }
                 else
-                    MessageBox.Show("одно из полей неверно заполнено или пароли не свопадают, пароль не менее 6 символов либо невернно введена капча");
+                    MessageBox.Show("неверные данные, или неверная капча, проверьте подключение к интернету");
 
             }
             catch (Exception ex)
