@@ -66,7 +66,7 @@ namespace ProjectCloud
             int Xpos = rnd.Next(0, Width - 50);
             int Ypos = rnd.Next(15, Height - 15);
             Brush[] colors = { Brushes.Black,
-                     Brushes.Red };
+                     Brushes.Red};
             Graphics g = Graphics.FromImage((Image)result);
             g.Clear(Color.Gray);
             textCaptch = String.Empty;
