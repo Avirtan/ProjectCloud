@@ -34,7 +34,5 @@ C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.pdb
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.xml
-E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.dll
 E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ICSharpCode.SharpZipLib.dll
-E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.pdb
-E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.xml
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\Ionic.Zip.dll

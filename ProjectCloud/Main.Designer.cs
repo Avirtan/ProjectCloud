@@ -30,18 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.FileView = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.RefreshFile = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.SeeFile = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Down = new MaterialSkin.Controls.MaterialFlatButton();
             this.AddFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.DeleteFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // imageList1
@@ -53,13 +54,13 @@
             // 
             // FileView
             // 
-            listViewGroup1.Header = "Локальные";
-            listViewGroup1.Name = "local";
-            listViewGroup2.Header = "Глобальные";
-            listViewGroup2.Name = "global";
+            listViewGroup3.Header = "Локальные";
+            listViewGroup3.Name = "local";
+            listViewGroup4.Header = "Глобальные";
+            listViewGroup4.Name = "global";
             this.FileView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup3,
+            listViewGroup4});
             this.FileView.LargeImageList = this.imageList1;
             this.FileView.Location = new System.Drawing.Point(252, 66);
             this.FileView.Margin = new System.Windows.Forms.Padding(2);
@@ -71,7 +72,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 377);
+            this.button1.Location = new System.Drawing.Point(119, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -88,7 +89,6 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // RefreshFile
             // 
@@ -106,35 +106,37 @@
             this.RefreshFile.UseVisualStyleBackColor = true;
             this.RefreshFile.Click += new System.EventHandler(this.RefreshFile_Click);
             // 
-            // materialFlatButton3
+            // SeeFile
             // 
-            this.materialFlatButton3.AutoSize = true;
-            this.materialFlatButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton3.Depth = 0;
-            this.materialFlatButton3.Location = new System.Drawing.Point(13, 112);
-            this.materialFlatButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton3.Name = "materialFlatButton3";
-            this.materialFlatButton3.Primary = false;
-            this.materialFlatButton3.Size = new System.Drawing.Size(146, 36);
-            this.materialFlatButton3.TabIndex = 5;
-            this.materialFlatButton3.Text = "Посмотреть файл";
-            this.materialFlatButton3.UseVisualStyleBackColor = true;
+            this.SeeFile.AutoSize = true;
+            this.SeeFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SeeFile.Depth = 0;
+            this.SeeFile.Location = new System.Drawing.Point(13, 110);
+            this.SeeFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SeeFile.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SeeFile.Name = "SeeFile";
+            this.SeeFile.Primary = false;
+            this.SeeFile.Size = new System.Drawing.Size(146, 36);
+            this.SeeFile.TabIndex = 5;
+            this.SeeFile.Text = "Посмотреть файл";
+            this.SeeFile.UseVisualStyleBackColor = true;
+            this.SeeFile.Click += new System.EventHandler(this.SeeFile_Click);
             // 
-            // materialFlatButton4
+            // Down
             // 
-            this.materialFlatButton4.AutoSize = true;
-            this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton4.Depth = 0;
-            this.materialFlatButton4.Location = new System.Drawing.Point(12, 158);
-            this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton4.Name = "materialFlatButton4";
-            this.materialFlatButton4.Primary = false;
-            this.materialFlatButton4.Size = new System.Drawing.Size(117, 36);
-            this.materialFlatButton4.TabIndex = 6;
-            this.materialFlatButton4.Text = "Скачать файл";
-            this.materialFlatButton4.UseVisualStyleBackColor = true;
+            this.Down.AutoSize = true;
+            this.Down.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Down.Depth = 0;
+            this.Down.Location = new System.Drawing.Point(12, 158);
+            this.Down.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Down.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Down.Name = "Down";
+            this.Down.Primary = false;
+            this.Down.Size = new System.Drawing.Size(117, 36);
+            this.Down.TabIndex = 6;
+            this.Down.Text = "Скачать файл";
+            this.Down.UseVisualStyleBackColor = true;
+            this.Down.Click += new System.EventHandler(this.Down_Click);
             // 
             // AddFile
             // 
@@ -173,7 +175,7 @@
             this.materialFlatButton6.AutoSize = true;
             this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton6.Depth = 0;
-            this.materialFlatButton6.Location = new System.Drawing.Point(13, 296);
+            this.materialFlatButton6.Location = new System.Drawing.Point(12, 345);
             this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton6.Name = "materialFlatButton6";
@@ -183,17 +185,34 @@
             this.materialFlatButton6.Text = "Посмотреть пользователей";
             this.materialFlatButton6.UseVisualStyleBackColor = true;
             // 
+            // Sync
+            // 
+            this.Sync.AutoSize = true;
+            this.Sync.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Sync.Depth = 0;
+            this.Sync.Location = new System.Drawing.Point(13, 297);
+            this.Sync.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Sync.Name = "Sync";
+            this.Sync.Primary = false;
+            this.Sync.Size = new System.Drawing.Size(142, 36);
+            this.Sync.TabIndex = 10;
+            this.Sync.Text = "Синахронизация";
+            this.Sync.UseVisualStyleBackColor = true;
+            this.Sync.Click += new System.EventHandler(this.Sync_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(809, 464);
+            this.Controls.Add(this.Sync);
             this.Controls.Add(this.materialFlatButton6);
             this.Controls.Add(this.DeleteFile);
             this.Controls.Add(this.AddFile);
-            this.Controls.Add(this.materialFlatButton4);
-            this.Controls.Add(this.materialFlatButton3);
+            this.Controls.Add(this.Down);
+            this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -201,6 +220,7 @@
             this.MaximumSize = new System.Drawing.Size(809, 464);
             this.MinimumSize = new System.Drawing.Size(809, 464);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файл Сервер";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
@@ -214,10 +234,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private MaterialSkin.Controls.MaterialFlatButton RefreshFile;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
+        private MaterialSkin.Controls.MaterialFlatButton SeeFile;
+        private MaterialSkin.Controls.MaterialFlatButton Down;
         private MaterialSkin.Controls.MaterialFlatButton AddFile;
         private MaterialSkin.Controls.MaterialFlatButton DeleteFile;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
+        private MaterialSkin.Controls.MaterialFlatButton Sync;
     }
 }

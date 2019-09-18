@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.mtb = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.Aremember = new MaterialSkin.Controls.MaterialCheckBox();
             this.Apass = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.Auth = new MaterialSkin.Controls.MaterialFlatButton();
@@ -57,7 +58,6 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,6 +94,16 @@
             this.tabPage1.Size = new System.Drawing.Size(480, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(33, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Aremember
             // 
@@ -456,16 +466,6 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(33, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,6 +477,7 @@
             this.MinimumSize = new System.Drawing.Size(491, 489);
             this.Name = "Form1";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mtb.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
