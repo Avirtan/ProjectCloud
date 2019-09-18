@@ -57,6 +57,7 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -80,6 +81,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.Aremember);
             this.tabPage1.Controls.Add(this.Apass);
             this.tabPage1.Controls.Add(this.Auth);
@@ -441,6 +443,7 @@
             this.mtbSelect.BaseTabControl = this.mtb;
             this.mtbSelect.Depth = 0;
             this.mtbSelect.Location = new System.Drawing.Point(2, 52);
+            this.mtbSelect.MaximumSize = new System.Drawing.Size(488, 23);
             this.mtbSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtbSelect.Name = "mtbSelect";
             this.mtbSelect.Size = new System.Drawing.Size(488, 23);
@@ -453,6 +456,16 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(33, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +473,8 @@
             this.ClientSize = new System.Drawing.Size(491, 489);
             this.Controls.Add(this.mtbSelect);
             this.Controls.Add(this.mtb);
+            this.MaximumSize = new System.Drawing.Size(491, 489);
+            this.MinimumSize = new System.Drawing.Size(491, 489);
             this.Name = "Form1";
             this.Sizable = false;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -505,6 +520,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField captch;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button resetCaptch;
+        private System.Windows.Forms.Button button1;
     }
 }
 

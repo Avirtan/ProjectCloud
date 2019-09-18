@@ -28,10 +28,13 @@ C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\obj\Debug
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.csproj.CopyComplete
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.exe
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.pdb
-E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\Ionic.Zip.dll
 E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.Main.resources
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.Main.resources
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.dll
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.pdb
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.xml
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.pdb
+E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.xml
