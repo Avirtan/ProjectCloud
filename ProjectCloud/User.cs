@@ -13,5 +13,6 @@ namespace ProjectCloud
         public static string pass { get; set; }
         public static string staff { get; set; }
         public static string email { get; set; }
+        public static bool Offline { get; set; }
     }
 }

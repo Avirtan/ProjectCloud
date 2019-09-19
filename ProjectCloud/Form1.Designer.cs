@@ -58,6 +58,7 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -81,6 +82,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.AuthOffline);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.Aremember);
             this.tabPage1.Controls.Add(this.Apass);
@@ -110,7 +112,7 @@
             this.Aremember.AutoSize = true;
             this.Aremember.Depth = 0;
             this.Aremember.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Aremember.Location = new System.Drawing.Point(166, 209);
+            this.Aremember.Location = new System.Drawing.Point(166, 191);
             this.Aremember.Margin = new System.Windows.Forms.Padding(0);
             this.Aremember.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Aremember.MouseState = MaterialSkin.MouseState.HOVER;
@@ -141,7 +143,7 @@
             this.Auth.AutoSize = true;
             this.Auth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Auth.Depth = 0;
-            this.Auth.Location = new System.Drawing.Point(166, 257);
+            this.Auth.Location = new System.Drawing.Point(166, 237);
             this.Auth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Auth.MouseState = MaterialSkin.MouseState.HOVER;
             this.Auth.Name = "Auth";
@@ -466,6 +468,22 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // AuthOffline
+            // 
+            this.AuthOffline.AutoSize = true;
+            this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AuthOffline.Depth = 0;
+            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
+            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AuthOffline.Name = "AuthOffline";
+            this.AuthOffline.Primary = false;
+            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
+            this.AuthOffline.TabIndex = 8;
+            this.AuthOffline.Text = "Войти Автономно";
+            this.AuthOffline.UseVisualStyleBackColor = true;
+            this.AuthOffline.Click += new System.EventHandler(this.AuthOffline_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,6 +540,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button resetCaptch;
         private System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialFlatButton AuthOffline;
     }
 }
 

@@ -30,19 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.FileView = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.SaveDownMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.RefreshFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.SeeFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.Down = new MaterialSkin.Controls.MaterialFlatButton();
             this.AddFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.DeleteFile = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.SeeUser = new MaterialSkin.Controls.MaterialFlatButton();
             this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
+            this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -54,41 +61,79 @@
             // 
             // FileView
             // 
-            listViewGroup3.Header = "Локальные";
-            listViewGroup3.Name = "local";
-            listViewGroup4.Header = "Глобальные";
-            listViewGroup4.Name = "global";
+            this.FileView.ContextMenuStrip = this.contextMenuStrip1;
+            listViewGroup1.Header = "Локальные";
+            listViewGroup1.Name = "local";
+            listViewGroup2.Header = "Глобальные";
+            listViewGroup2.Name = "global";
             this.FileView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.FileView.LargeImageList = this.imageList1;
-            this.FileView.Location = new System.Drawing.Point(252, 66);
+            this.FileView.Location = new System.Drawing.Point(252, 64);
             this.FileView.Margin = new System.Windows.Forms.Padding(2);
             this.FileView.Name = "FileView";
-            this.FileView.Size = new System.Drawing.Size(556, 399);
+            this.FileView.Size = new System.Drawing.Size(553, 397);
             this.FileView.SmallImageList = this.imageList1;
             this.FileView.TabIndex = 1;
             this.FileView.UseCompatibleStateImageBehavior = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveDownMenuItem,
+            this.SeeToolStripMenuItem,
+            this.удалитьToolStripMenuItem,
+            this.ExtractToolStripMenuItem,
+            this.информацияToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 114);
+            // 
+            // SaveDownMenuItem
+            // 
+            this.SaveDownMenuItem.BackColor = System.Drawing.Color.Black;
+            this.SaveDownMenuItem.ForeColor = System.Drawing.Color.White;
+            this.SaveDownMenuItem.Name = "SaveDownMenuItem";
+            this.SaveDownMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SaveDownMenuItem.Text = "Скачать";
+            this.SaveDownMenuItem.Click += new System.EventHandler(this.Down_Click);
+            // 
+            // SeeToolStripMenuItem
+            // 
+            this.SeeToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.SeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.SeeToolStripMenuItem.Name = "SeeToolStripMenuItem";
+            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SeeToolStripMenuItem.Text = "Посмотреть";
+            this.SeeToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.удалитьToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // информацияToolStripMenuItem
+            // 
+            this.информацияToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.информацияToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.информацияToolStripMenuItem.Text = "Информация";
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(119, 406);
+            this.button1.Location = new System.Drawing.Point(160, 438);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(12, 406);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // RefreshFile
             // 
@@ -143,14 +188,14 @@
             this.AddFile.AutoSize = true;
             this.AddFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddFile.Depth = 0;
-            this.AddFile.Location = new System.Drawing.Point(13, 204);
+            this.AddFile.Location = new System.Drawing.Point(12, 206);
             this.AddFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddFile.Name = "AddFile";
             this.AddFile.Primary = false;
             this.AddFile.Size = new System.Drawing.Size(128, 36);
             this.AddFile.TabIndex = 7;
-            this.AddFile.Text = "Добавить файл";
+            this.AddFile.Text = "Добавить файл \r\n";
             this.AddFile.UseVisualStyleBackColor = true;
             this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
             // 
@@ -159,7 +204,7 @@
             this.DeleteFile.AutoSize = true;
             this.DeleteFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DeleteFile.Depth = 0;
-            this.DeleteFile.Location = new System.Drawing.Point(13, 250);
+            this.DeleteFile.Location = new System.Drawing.Point(13, 304);
             this.DeleteFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeleteFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteFile.Name = "DeleteFile";
@@ -170,27 +215,27 @@
             this.DeleteFile.UseVisualStyleBackColor = true;
             this.DeleteFile.Click += new System.EventHandler(this.DeleteFile_Click);
             // 
-            // materialFlatButton6
+            // SeeUser
             // 
-            this.materialFlatButton6.AutoSize = true;
-            this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton6.Depth = 0;
-            this.materialFlatButton6.Location = new System.Drawing.Point(12, 345);
-            this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton6.Name = "materialFlatButton6";
-            this.materialFlatButton6.Primary = false;
-            this.materialFlatButton6.Size = new System.Drawing.Size(223, 36);
-            this.materialFlatButton6.TabIndex = 9;
-            this.materialFlatButton6.Text = "Посмотреть пользователей";
-            this.materialFlatButton6.UseVisualStyleBackColor = true;
+            this.SeeUser.AutoSize = true;
+            this.SeeUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SeeUser.Depth = 0;
+            this.SeeUser.Location = new System.Drawing.Point(14, 400);
+            this.SeeUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SeeUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SeeUser.Name = "SeeUser";
+            this.SeeUser.Primary = false;
+            this.SeeUser.Size = new System.Drawing.Size(223, 36);
+            this.SeeUser.TabIndex = 9;
+            this.SeeUser.Text = "Посмотреть пользователей";
+            this.SeeUser.UseVisualStyleBackColor = true;
             // 
             // Sync
             // 
             this.Sync.AutoSize = true;
             this.Sync.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sync.Depth = 0;
-            this.Sync.Location = new System.Drawing.Point(13, 297);
+            this.Sync.Location = new System.Drawing.Point(14, 352);
             this.Sync.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync.Name = "Sync";
@@ -201,28 +246,52 @@
             this.Sync.UseVisualStyleBackColor = true;
             this.Sync.Click += new System.EventHandler(this.Sync_Click);
             // 
+            // ExtractToolStripMenuItem
+            // 
+            this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
+            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
+            this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
+            // 
+            // Upload
+            // 
+            this.Upload.AutoSize = true;
+            this.Upload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Upload.Depth = 0;
+            this.Upload.Location = new System.Drawing.Point(12, 254);
+            this.Upload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Upload.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Upload.Name = "Upload";
+            this.Upload.Primary = false;
+            this.Upload.Size = new System.Drawing.Size(132, 36);
+            this.Upload.TabIndex = 11;
+            this.Upload.Text = "Загрузить файл";
+            this.Upload.UseVisualStyleBackColor = true;
+            this.Upload.Click += new System.EventHandler(this.DownMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(809, 464);
+            this.ClientSize = new System.Drawing.Size(804, 465);
+            this.Controls.Add(this.Upload);
             this.Controls.Add(this.Sync);
-            this.Controls.Add(this.materialFlatButton6);
+            this.Controls.Add(this.SeeUser);
             this.Controls.Add(this.DeleteFile);
             this.Controls.Add(this.AddFile);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.FileView);
-            this.MaximumSize = new System.Drawing.Size(809, 464);
-            this.MinimumSize = new System.Drawing.Size(809, 464);
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файл Сервер";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,13 +301,19 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView FileView;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private MaterialSkin.Controls.MaterialFlatButton RefreshFile;
         private MaterialSkin.Controls.MaterialFlatButton SeeFile;
         private MaterialSkin.Controls.MaterialFlatButton Down;
         private MaterialSkin.Controls.MaterialFlatButton AddFile;
         private MaterialSkin.Controls.MaterialFlatButton DeleteFile;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
+        private MaterialSkin.Controls.MaterialFlatButton SeeUser;
         private MaterialSkin.Controls.MaterialFlatButton Sync;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem SaveDownMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExtractToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialFlatButton Upload;
     }
 }

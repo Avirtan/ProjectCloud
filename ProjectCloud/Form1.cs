@@ -213,6 +213,7 @@ namespace ProjectCloud
                         User.login = reader[2].ToString();
                         User.email = reader[3].ToString();
                         User.staff = reader[4].ToString();
+                        User.Offline = false;
                         Main form2 = new Main();
                         form2.Show();
                         this.Hide();
@@ -388,6 +389,47 @@ namespace ProjectCloud
             Main form2 = new Main();
             form2.Show();
             this.Hide();
+        }
+
+        private void AuthOffline_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("1.txt", System.Text.Encoding.Default))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if(line != "" && sr.ReadLine() != "")
+                        {
+                            User.Offline = true;
+                            Main form2 = new Main();
+                            form2.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+                if (Aremember.Checked)
+                {
+                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine(Alogin.Text);
+                        sw.WriteLine(Apass.Text);
+                    }
+                    
+                }
+                else
+                {
+                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine("");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
