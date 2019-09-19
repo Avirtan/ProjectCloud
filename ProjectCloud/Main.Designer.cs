@@ -49,7 +49,9 @@
             this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
             this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
+            this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -188,7 +190,7 @@
             this.AddFile.AutoSize = true;
             this.AddFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddFile.Depth = 0;
-            this.AddFile.Location = new System.Drawing.Point(12, 206);
+            this.AddFile.Location = new System.Drawing.Point(0, 4);
             this.AddFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddFile.Name = "AddFile";
@@ -204,7 +206,7 @@
             this.DeleteFile.AutoSize = true;
             this.DeleteFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DeleteFile.Depth = 0;
-            this.DeleteFile.Location = new System.Drawing.Point(13, 304);
+            this.DeleteFile.Location = new System.Drawing.Point(1, 102);
             this.DeleteFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeleteFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteFile.Name = "DeleteFile";
@@ -220,7 +222,7 @@
             this.SeeUser.AutoSize = true;
             this.SeeUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SeeUser.Depth = 0;
-            this.SeeUser.Location = new System.Drawing.Point(14, 400);
+            this.SeeUser.Location = new System.Drawing.Point(2, 198);
             this.SeeUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SeeUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.SeeUser.Name = "SeeUser";
@@ -235,7 +237,7 @@
             this.Sync.AutoSize = true;
             this.Sync.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sync.Depth = 0;
-            this.Sync.Location = new System.Drawing.Point(14, 352);
+            this.Sync.Location = new System.Drawing.Point(2, 150);
             this.Sync.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync.Name = "Sync";
@@ -260,7 +262,7 @@
             this.Upload.AutoSize = true;
             this.Upload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Upload.Depth = 0;
-            this.Upload.Location = new System.Drawing.Point(12, 254);
+            this.Upload.Location = new System.Drawing.Point(0, 52);
             this.Upload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Upload.MouseState = MaterialSkin.MouseState.HOVER;
             this.Upload.Name = "Upload";
@@ -271,16 +273,24 @@
             this.Upload.UseVisualStyleBackColor = true;
             this.Upload.Click += new System.EventHandler(this.DownMenuItem_Click);
             // 
+            // Panel1
+            // 
+            this.Panel1.Controls.Add(this.Upload);
+            this.Panel1.Controls.Add(this.AddFile);
+            this.Panel1.Controls.Add(this.DeleteFile);
+            this.Panel1.Controls.Add(this.Sync);
+            this.Panel1.Controls.Add(this.SeeUser);
+            this.Panel1.Location = new System.Drawing.Point(12, 206);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(225, 230);
+            this.Panel1.TabIndex = 12;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 465);
-            this.Controls.Add(this.Upload);
-            this.Controls.Add(this.Sync);
-            this.Controls.Add(this.SeeUser);
-            this.Controls.Add(this.DeleteFile);
-            this.Controls.Add(this.AddFile);
+            this.Controls.Add(this.Panel1);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
@@ -292,6 +302,8 @@
             this.Text = "Файл Сервер";
             this.Load += new System.EventHandler(this.Main_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +327,6 @@
         private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExtractToolStripMenuItem;
         private MaterialSkin.Controls.MaterialFlatButton Upload;
+        private System.Windows.Forms.Panel Panel1;
     }
 }

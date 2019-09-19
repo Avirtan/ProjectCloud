@@ -37,13 +37,14 @@ namespace ProjectCloud
             skin.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             if(User.staff == "0")
             {
-                SeeUser.Visible = false;
-                Down.Visible = false;
-                Upload.Visible = false;
-                Sync.Visible = false;
-                SeeUser.Visible = false;
-                DeleteFile.Visible = false;
-                AddFile.Visible = false;
+                //SeeUser.Visible = false;
+                //Down.Visible = false;
+                //Upload.Visible = false;
+                //Sync.Visible = false;
+                //SeeUser.Visible = false;
+                //DeleteFile.Visible = false;
+                //AddFile.Visible = false;
+                Panel1.Visible = false;
             }
             if (User.Offline)
             {
@@ -155,7 +156,7 @@ namespace ProjectCloud
                 btn.Click += RefreshFile_Click;
                 btn.PerformClick();
             }
-            catch{MessageBox.Show("Файл уже добавлен или неверный путь");}
+            catch(Exception ex){MessageBox.Show(ex.Message);}
         }
 
         private void SeeFile_Click(object sender, EventArgs e)
@@ -190,20 +191,62 @@ namespace ProjectCloud
 
         private void Sync_Click(object sender, EventArgs e)
         {
-            try
-            {
+           // try
+           // {
                 if (CheckNetwork())
                 {
                     DeleteFolder();
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                    ArrayList FileName = new ArrayList();
                     using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                     {
                         foreach (ZipEntry z in zip)
                         {
+                            FileName.Add(z.FileName);
+                            FtpWebRequest req = (FtpWebRequest)WebRequest.Create(ftpUrl + z.FileName);
+                            req.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                            req.Method = WebRequestMethods.Ftp.DeleteFile;
+                            try
+                            {
+                                FtpWebResponse res = (FtpWebResponse)req.GetResponse();
+                                res.Close();
+                            }
+                            catch { }
                             z.ExtractWithPassword(@"Temp\", pass);
                             client.UploadFile(ftpUrl + z.FileName, @"Temp\" + z.FileName);
                         }
+                    }
+                    using (ZipFile zip = ZipFile.Read("Cloud.zip"))
+                    {
+                        for(int i = 0; i < FileName.Count; i++)
+                        {
+                            zip.RemoveEntry(FileName[i].ToString());
+                            zip.Save();
+                        }
+                    }
+                    DeleteFolder();
+                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                    request.Method = WebRequestMethods.Ftp.ListDirectory;
+                    request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                    Stream responseStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(responseStream);
+                    string line;
+                    ArrayList listFileFtp = new ArrayList();
+                    while ((line = reader.ReadLine()) != null) listFileFtp.Add(line);
+                    reader.Close();
+                    response.Close();
+                    foreach (string o in listFileFtp)
+                    {
+                        client.DownloadFile(ftpUrl + o, @"Temp\" + o);
+                        ZipFile zp = new ZipFile("Cloud.zip");
+                        zp.AlternateEncoding = Encoding.UTF8;
+                        zp.Password = pass;
+                        Console.WriteLine(o.ToString());
+                        zp.AddFile(@"Temp\" + o.ToString(),"");
+                        zp.Save();
+                        File.Delete(@"Temp\" + o);
                     }
                     DeleteFolder();
                     Button btn = new Button();
@@ -211,8 +254,8 @@ namespace ProjectCloud
                     btn.PerformClick();
                 }
                 else MessageBox.Show("Нет интернета");
-            }
-            catch { }
+           // }
+            //catch { }
         }
 
         private void Down_Click(object sender, EventArgs e)
@@ -291,7 +334,7 @@ namespace ProjectCloud
                     btn.PerformClick();
                 }
             }
-            catch (Exception ex){MessageBox.Show(ex.Message);}
+            catch (Exception ex){MessageBox.Show("Файл уже существует");}
         }
     }
 }
