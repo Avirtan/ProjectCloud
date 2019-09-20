@@ -37,15 +37,10 @@ namespace ProjectCloud
             skin.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             if(User.staff == "0")
             {
-                //SeeUser.Visible = false;
-                //Down.Visible = false;
-                //Upload.Visible = false;
-                //Sync.Visible = false;
-                //SeeUser.Visible = false;
-                //DeleteFile.Visible = false;
-                //AddFile.Visible = false;
                 Panel1.Visible = false;
+                contextMenuStrip1.Items[2].Dispose();
             }
+            if (User.staff == "1") SeeUser.Visible = false;
             if (User.Offline)
             {
                 Down.Enabled = false;
@@ -239,14 +234,15 @@ namespace ProjectCloud
                     response.Close();
                     foreach (string o in listFileFtp)
                     {
-                        client.DownloadFile(ftpUrl + o, @"Temp\" + o);
+                        client.DownloadFile(ftpUrl + o,  o);
                         ZipFile zp = new ZipFile("Cloud.zip");
+                        zp.AlternateEncodingUsage = ZipOption.Always;
                         zp.AlternateEncoding = Encoding.UTF8;
                         zp.Password = pass;
                         Console.WriteLine(o.ToString());
-                        zp.AddFile(@"Temp\" + o.ToString(),"");
+                        zp.AddFile( o.ToString(),"");
                         zp.Save();
-                        File.Delete(@"Temp\" + o);
+                        File.Delete( o);
                     }
                     DeleteFolder();
                     Button btn = new Button();

@@ -38,6 +38,7 @@
             this.SaveDownMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.RefreshFile = new MaterialSkin.Controls.MaterialFlatButton();
@@ -47,7 +48,6 @@
             this.DeleteFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.SeeUser = new MaterialSkin.Controls.MaterialFlatButton();
             this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
-            this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
@@ -118,6 +118,15 @@
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // ExtractToolStripMenuItem
+            // 
+            this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
+            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
+            this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
             // информацияToolStripMenuItem
             // 
@@ -242,20 +251,11 @@
             this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync.Name = "Sync";
             this.Sync.Primary = false;
-            this.Sync.Size = new System.Drawing.Size(142, 36);
+            this.Sync.Size = new System.Drawing.Size(133, 36);
             this.Sync.TabIndex = 10;
-            this.Sync.Text = "Синахронизация";
+            this.Sync.Text = "Синхронизация";
             this.Sync.UseVisualStyleBackColor = true;
             this.Sync.Click += new System.EventHandler(this.Sync_Click);
-            // 
-            // ExtractToolStripMenuItem
-            // 
-            this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
-            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
-            this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
             // Upload
             // 
