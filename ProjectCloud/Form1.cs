@@ -186,10 +186,7 @@ namespace ProjectCloud
                     }
                 }
             }
-            catch(Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
+            catch{ }
         }
 
         private void Auth_Click(object sender, EventArgs e)
@@ -228,10 +225,7 @@ namespace ProjectCloud
                                     sw.WriteLine(Apass.Text);
                                 }
                             }
-                            catch (Exception ex)
-                            {
-                                //MessageBox.Show(ex.Message);
-                            }
+                            catch { }
                         }
                         else
                         {
@@ -405,7 +399,7 @@ namespace ProjectCloud
                             User.Offline = true;
                             Main form2 = new Main();
                             form2.Show();
-                            this.Hide();
+                            this.Dispose();
                         }
                     }
                 }

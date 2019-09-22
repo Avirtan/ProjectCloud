@@ -31,6 +31,7 @@ namespace ProjectCloud
         
         private void Main_Load(object sender, EventArgs e)
         {
+            DeleteFolder();
             var skin = MaterialSkinManager.Instance;
             skin.AddFormToManage(this);
             skin.Theme = MaterialSkinManager.Themes.DARK;
@@ -70,41 +71,19 @@ namespace ProjectCloud
                 FileView.Items.Clear();
                 if (CheckNetwork())
                 {
-                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
-                    request.Method = WebRequestMethods.Ftp.ListDirectory;
-                    request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                    Stream responseStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(responseStream);
-                    string line;
-                    ArrayList listFileFtp = new ArrayList();
-                    while ((line = reader.ReadLine()) != null) listFileFtp.Add(line);
-                    reader.Close();
-                    response.Close();
-                    foreach (object o in listFileFtp)
-                    {
-                        ListViewItem lvi = new ListViewItem();
-                        lvi.Text = o.ToString();
-                        lvi.ImageIndex = 0;
-                        lvi.Group = FileView.Groups[1];
-                        FileView.Items.Add(lvi);
-                    }
+                    ArrayList listFileFtp = GetDirectoryList();
+                    RefreshViewList(listFileFtp, 1,1);
                 }
                 using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                 {
-                    foreach (ZipEntry z in zip)
-                    {
-                        ListViewItem lvi = new ListViewItem();
-                        lvi.Text = z.FileName;
-                        lvi.ImageIndex = 0;
-                        lvi.Group = FileView.Groups[0];
-                        FileView.Items.Add(lvi);
-                    }
+                    ArrayList listFileZip = new ArrayList();
+                    foreach (ZipEntry z in zip) listFileZip.Add(z.FileName);
+                    RefreshViewList(listFileZip, 0,0);
                 }
             }
             catch (Exception ex){MessageBox.Show(ex.Message);}
         }
-
+        
         private void DeleteFile_Click(object sender, EventArgs e)
         {
             try
@@ -116,9 +95,7 @@ namespace ProjectCloud
                     request.Method = WebRequestMethods.Ftp.DeleteFile;
                     FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                     response.Close();
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
@@ -127,12 +104,10 @@ namespace ProjectCloud
                         zip.RemoveEntry(FileView.FocusedItem.Text);
                         zip.Save();
                     }
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
             }
-            catch (Exception ex){MessageBox.Show(ex.Message);}
+            catch{}
         }
 
         private void AddFile_Click(object sender, EventArgs e)
@@ -147,9 +122,7 @@ namespace ProjectCloud
                 zip.Password = pass;
                 zip.AddFile(filename, "");
                 zip.Save();
-                Button btn = new Button();
-                btn.Click += RefreshFile_Click;
-                btn.PerformClick();
+                RefreshButtonClick();
             }
             catch(Exception ex){MessageBox.Show(ex.Message);}
         }
@@ -158,8 +131,8 @@ namespace ProjectCloud
         {
             try
             {
-                bool flag = false;
                 DeleteFolder();
+                if (FileView.FocusedItem.Group.ToString() == "Глобальные") { MessageBox.Show("Выберете локальный файл"); return; }
                 using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                 {
                     foreach (ZipEntry z in zip)
@@ -167,19 +140,15 @@ namespace ProjectCloud
                         if (FileView.FocusedItem.Group.ToString() == "Локальные" && z.FileName == FileView.FocusedItem.Text)
                         {
                             z.ExtractWithPassword(@"Temp\", pass);
-                            flag = true;
                             break;
                         }
                     }
                 }
-                if (FileView.FocusedItem.Group.ToString() == "Глобальные") MessageBox.Show("Выберете локальный файл");
-                if (!flag) return;
                 string commandText = @"Temp\" + FileView.FocusedItem.Text;
                 var proc = new System.Diagnostics.Process();
                 proc.StartInfo.FileName = commandText;
                 proc.StartInfo.UseShellExecute = true;
                 proc.Start();
-
             }
             catch { }
         }
@@ -221,17 +190,7 @@ namespace ProjectCloud
                         }
                     }
                     DeleteFolder();
-                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
-                    request.Method = WebRequestMethods.Ftp.ListDirectory;
-                    request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                    Stream responseStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(responseStream);
-                    string line;
-                    ArrayList listFileFtp = new ArrayList();
-                    while ((line = reader.ReadLine()) != null) listFileFtp.Add(line);
-                    reader.Close();
-                    response.Close();
+                    ArrayList listFileFtp = GetDirectoryList();
                     foreach (string o in listFileFtp)
                     {
                         client.DownloadFile(ftpUrl + o,  o);
@@ -239,15 +198,12 @@ namespace ProjectCloud
                         zp.AlternateEncodingUsage = ZipOption.Always;
                         zp.AlternateEncoding = Encoding.UTF8;
                         zp.Password = pass;
-                        Console.WriteLine(o.ToString());
-                        zp.AddFile( o.ToString(),"");
+                        zp.AddFile(o.ToString(),"");
                         zp.Save();
-                        File.Delete( o);
+                        File.Delete(o);
                     }
                     DeleteFolder();
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
                 else MessageBox.Show("Нет интернета");
            // }
@@ -269,9 +225,7 @@ namespace ProjectCloud
                     zip.AddFile(FileView.FocusedItem.Text, "");
                     zip.Save();
                     File.Delete(FileView.FocusedItem.Text);
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
                 else MessageBox.Show("Нет интернета или выбран локальный файл");
             }
@@ -280,8 +234,9 @@ namespace ProjectCloud
 
         private void DeleteFolder()
         {
-           Directory.Delete(@"Temp\", true);
-           Directory.CreateDirectory(@"Temp\");
+           try {Directory.Delete(@"Temp\", true); Directory.CreateDirectory(@"Temp\"); }
+           catch { Directory.CreateDirectory(@"Temp\"); }
+           
         }
 
         private void DownMenuItem_Click(object sender, EventArgs e)
@@ -296,9 +251,7 @@ namespace ProjectCloud
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
                     client.UploadFile(ftpUrl + filename.Split('\\')[filename.Split('\\').Length-1], filename);
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
                 else MessageBox.Show("Нет интернета");
             }
@@ -325,12 +278,50 @@ namespace ProjectCloud
                         zip.AlternateEncoding = Encoding.UTF8;
                         zip[FileView.FocusedItem.Text].ExtractWithPassword(path,pass);
                     }
-                    Button btn = new Button();
-                    btn.Click += RefreshFile_Click;
-                    btn.PerformClick();
+                    RefreshButtonClick();
                 }
             }
-            catch (Exception ex){MessageBox.Show("Файл уже существует");}
+            catch{MessageBox.Show("Файл уже существует");}
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void RefreshButtonClick()
+        {
+            Button btn = new Button();
+            btn.Click += RefreshFile_Click;
+            btn.PerformClick();
+        }
+
+        private void RefreshViewList(ArrayList arr,int group,int img)
+        {
+            foreach (object obj in arr)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = obj.ToString();
+                lvi.ImageIndex = img;
+                lvi.Group = FileView.Groups[group];
+                FileView.Items.Add(lvi);
+            }
+        }
+
+        private ArrayList GetDirectoryList()
+        {
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+            request.Method = WebRequestMethods.Ftp.ListDirectory;
+            request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            Stream responseStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+            string line;
+            ArrayList listFileFtp = new ArrayList();
+            while ((line = reader.ReadLine()) != null) listFileFtp.Add(line);
+            reader.Close();
+            response.Close();
+            return listFileFtp;
         }
     }
 }

@@ -296,10 +296,12 @@
             this.Controls.Add(this.RefreshFile);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.FileView);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "Main";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файл Сервер";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
