@@ -15,6 +15,7 @@ using System.Net;
 using System.Collections;
 using System.IO.Compression;
 using System.Threading;
+using System.Security.AccessControl;
 
 namespace ProjectCloud
 {
@@ -28,7 +29,9 @@ namespace ProjectCloud
         private string ftpPass = "VOcxjN%0";
         private string ftpUrl = @"ftp://z95230kj.beget.tech/Cloud/";
         private string pass = "12345";
-        
+        byte[] key = { 60, 193, 108, 168, 202, 110, 29, 20, 202, 228, 187, 190, 27, 241, 75, 68, 81, 119, 125, 85, 190, 246, 40, 176, 145, 54, 27, 174, 67, 173, 46, 45 };
+        byte[] iv = { 132, 193, 67, 244, 8, 174, 175, 121, 190, 248, 26, 32, 149, 151, 33, 89 };
+
         private void Main_Load(object sender, EventArgs e)
         {
             DeleteFolder();
@@ -54,9 +57,8 @@ namespace ProjectCloud
         
         private void button1_Click(object sender, EventArgs e)
         {
-           ZipFile zip2 = new ZipFile();
-           zip2.AddFile("1.txt");
-           zip2.Save("Cloud.zip");
+            ZipFile zip = new ZipFile();
+            zip.Save("Cloud.zip");
         }
 
         private bool CheckNetwork()
@@ -66,6 +68,7 @@ namespace ProjectCloud
 
         private void RefreshFile_Click(object sender, EventArgs e)
         {
+            DeleteFolder();
             try
             {
                 FileView.Items.Clear();
@@ -119,8 +122,10 @@ namespace ProjectCloud
                 string filename = openFileDialog1.FileName;
                 ZipFile zip = ZipFile.Read("Cloud.zip");
                 zip.AlternateEncoding = Encoding.UTF8;
+                string encriptFile = "Temp\\"+filename.Split('\\')[filename.Split('\\').Length - 1];
+                RijndaelHelper.EncryptFile(filename,encriptFile,key,iv);
                 zip.Password = pass;
-                zip.AddFile(filename, "");
+                zip.AddFile(encriptFile, "");
                 zip.Save();
                 RefreshButtonClick();
             }
@@ -129,9 +134,9 @@ namespace ProjectCloud
 
         private void SeeFile_Click(object sender, EventArgs e)
         {
+            DeleteFolder();
             try
             {
-                DeleteFolder();
                 if (FileView.FocusedItem.Group.ToString() == "Глобальные") { MessageBox.Show("Выберете локальный файл"); return; }
                 using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                 {
@@ -139,27 +144,28 @@ namespace ProjectCloud
                     {
                         if (FileView.FocusedItem.Group.ToString() == "Локальные" && z.FileName == FileView.FocusedItem.Text)
                         {
-                            z.ExtractWithPassword(@"Temp\", pass);
+                            z.ExtractWithPassword(@"Temp\", pass);  
                             break;
                         }
                     }
                 }
-                string commandText = @"Temp\" + FileView.FocusedItem.Text;
+                RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, @"Temp\" +"1"+FileView.FocusedItem.Text, key, iv);
+                string commandText = @"Temp\" + "1" + FileView.FocusedItem.Text;
                 var proc = new System.Diagnostics.Process();
                 proc.StartInfo.FileName = commandText;
                 proc.StartInfo.UseShellExecute = true;
                 proc.Start();
             }
-            catch { }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Sync_Click(object sender, EventArgs e)
         {
-           // try
-           // {
+           try
+           { 
                 if (CheckNetwork())
                 {
-                    DeleteFolder();
+                    //DeleteFolder();
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
                     ArrayList FileName = new ArrayList();
@@ -202,12 +208,11 @@ namespace ProjectCloud
                         zp.Save();
                         File.Delete(o);
                     }
-                    DeleteFolder();
                     RefreshButtonClick();
                 }
                 else MessageBox.Show("Нет интернета");
-           // }
-            //catch { }
+           }
+           catch { }
         }
 
         private void Down_Click(object sender, EventArgs e)
@@ -229,7 +234,7 @@ namespace ProjectCloud
                 }
                 else MessageBox.Show("Нет интернета или выбран локальный файл");
             }
-            catch { }
+            catch { MessageBox.Show("Файл уже скачан"); }
         }
 
         private void DeleteFolder()
@@ -239,7 +244,7 @@ namespace ProjectCloud
            
         }
 
-        private void DownMenuItem_Click(object sender, EventArgs e)
+        private void Upload_Click(object sender, EventArgs e)
         {
             try
             {
@@ -248,12 +253,14 @@ namespace ProjectCloud
                     OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
                     if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
                     string filename = openFileDialog1.FileName;
+                    string name = filename.Split('\\')[filename.Split('\\').Length - 1];
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    client.UploadFile(ftpUrl + filename.Split('\\')[filename.Split('\\').Length-1], filename);
+                    RijndaelHelper.EncryptFile(filename,@"Temp\" + name,key,iv);
+                    client.UploadFile(ftpUrl + name, @"Temp\"+ name);
                     RefreshButtonClick();
                 }
-                else MessageBox.Show("Нет интернета");
+                else MessageBox.Show("Нет интернета или выбран локальный файл");
             }
             catch(Exception ex){ MessageBox.Show(ex.Message); }
         }
@@ -269,19 +276,22 @@ namespace ProjectCloud
                 {
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,path+@"\"+ FileView.FocusedItem.Text);
+                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,@"Temp\1" + FileView.FocusedItem.Text);
+                    RijndaelHelper.DecryptFile(@"Temp\1" + FileView.FocusedItem.Text,path+ @"\" + FileView.FocusedItem.Text,key,iv);
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
                     using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                     {
                         zip.AlternateEncoding = Encoding.UTF8;
-                        zip[FileView.FocusedItem.Text].ExtractWithPassword(path,pass);
+                        zip[FileView.FocusedItem.Text].ExtractWithPassword(@"Temp\1" + FileView.FocusedItem.Text, pass);
+                        RijndaelHelper.DecryptFile(@"Temp\1" + FileView.FocusedItem.Text, path + @"\" + FileView.FocusedItem.Text, key, iv);
                     }
                     RefreshButtonClick();
                 }
+                DeleteFolder();
             }
-            catch{MessageBox.Show("Файл уже существует");}
+            catch(Exception ex){MessageBox.Show(ex.Message);}
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)

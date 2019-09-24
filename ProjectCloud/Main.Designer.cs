@@ -35,7 +35,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.FileView = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.SaveDownMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,29 +83,19 @@
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SaveDownMenuItem,
             this.SeeToolStripMenuItem,
             this.удалитьToolStripMenuItem,
             this.ExtractToolStripMenuItem,
             this.информацияToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 114);
-            // 
-            // SaveDownMenuItem
-            // 
-            this.SaveDownMenuItem.BackColor = System.Drawing.Color.Black;
-            this.SaveDownMenuItem.ForeColor = System.Drawing.Color.White;
-            this.SaveDownMenuItem.Name = "SaveDownMenuItem";
-            this.SaveDownMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.SaveDownMenuItem.Text = "Скачать";
-            this.SaveDownMenuItem.Click += new System.EventHandler(this.Down_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             // 
             // SeeToolStripMenuItem
             // 
             this.SeeToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.SeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.SeeToolStripMenuItem.Name = "SeeToolStripMenuItem";
-            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SeeToolStripMenuItem.Text = "Посмотреть";
             this.SeeToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
             // 
@@ -115,7 +104,7 @@
             this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.удалитьToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteFile_Click);
             // 
@@ -124,7 +113,7 @@
             this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
-            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
             this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
@@ -133,7 +122,7 @@
             this.информацияToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.информацияToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.информацияToolStripMenuItem.Text = "Информация";
             // 
             // button1
@@ -271,7 +260,7 @@
             this.Upload.TabIndex = 11;
             this.Upload.Text = "Загрузить файл";
             this.Upload.UseVisualStyleBackColor = true;
-            this.Upload.Click += new System.EventHandler(this.DownMenuItem_Click);
+            this.Upload.Click += new System.EventHandler(this.Upload_Click);
             // 
             // Panel1
             // 
@@ -323,7 +312,6 @@
         private MaterialSkin.Controls.MaterialFlatButton SeeUser;
         private MaterialSkin.Controls.MaterialFlatButton Sync;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem SaveDownMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;

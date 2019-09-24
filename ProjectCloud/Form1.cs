@@ -382,6 +382,32 @@ namespace ProjectCloud
         {
             Main form2 = new Main();
             form2.Show();
+            if (Aremember.Checked)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine(Alogin.Text);
+                        sw.WriteLine(Apass.Text);
+                    }
+                }
+                catch { }
+            }
+            else
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine("");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
             this.Hide();
         }
 
