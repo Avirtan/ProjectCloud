@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.mtb = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
             this.button1 = new System.Windows.Forms.Button();
             this.Aremember = new MaterialSkin.Controls.MaterialCheckBox();
             this.Apass = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -58,7 +59,6 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -96,6 +96,22 @@
             this.tabPage1.Size = new System.Drawing.Size(480, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
+            // 
+            // AuthOffline
+            // 
+            this.AuthOffline.AutoSize = true;
+            this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AuthOffline.Depth = 0;
+            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
+            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AuthOffline.Name = "AuthOffline";
+            this.AuthOffline.Primary = false;
+            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
+            this.AuthOffline.TabIndex = 8;
+            this.AuthOffline.Text = "Войти Автономно";
+            this.AuthOffline.UseVisualStyleBackColor = true;
+            this.AuthOffline.Click += new System.EventHandler(this.AuthOffline_Click);
             // 
             // button1
             // 
@@ -467,22 +483,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // AuthOffline
-            // 
-            this.AuthOffline.AutoSize = true;
-            this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AuthOffline.Depth = 0;
-            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
-            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AuthOffline.Name = "AuthOffline";
-            this.AuthOffline.Primary = false;
-            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
-            this.AuthOffline.TabIndex = 8;
-            this.AuthOffline.Text = "Войти Автономно";
-            this.AuthOffline.UseVisualStyleBackColor = true;
-            this.AuthOffline.Click += new System.EventHandler(this.AuthOffline_Click);
             // 
             // Form1
             // 

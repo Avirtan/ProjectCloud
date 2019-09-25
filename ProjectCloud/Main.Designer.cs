@@ -49,10 +49,22 @@
             this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
             this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.посмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.извлечьВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbUserId = new System.Windows.Forms.ComboBox();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.DeleteUser = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hideTable = new MaterialSkin.Controls.MaterialFlatButton();
             this.contextMenuStrip1.SuspendLayout();
             this.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            this.materialContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -64,7 +76,7 @@
             // 
             // FileView
             // 
-            this.FileView.ContextMenuStrip = this.contextMenuStrip1;
+            this.FileView.ContextMenuStrip = this.materialContextMenuStrip1;
             listViewGroup3.Header = "Локальные";
             listViewGroup3.Name = "local";
             listViewGroup4.Header = "Глобальные";
@@ -136,6 +148,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RefreshFile
@@ -232,6 +245,7 @@
             this.SeeUser.TabIndex = 9;
             this.SeeUser.Text = "Посмотреть пользователей";
             this.SeeUser.UseVisualStyleBackColor = true;
+            this.SeeUser.Click += new System.EventHandler(this.SeeUser_Click);
             // 
             // Sync
             // 
@@ -277,20 +291,134 @@
             this.Panel1.Size = new System.Drawing.Size(225, 230);
             this.Panel1.TabIndex = 12;
             // 
-            // dataGridView1
+            // dgvUser
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(810, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 397);
-            this.dataGridView1.TabIndex = 13;
+            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvUser.Location = new System.Drawing.Point(810, 64);
+            this.dgvUser.Name = "dgvUser";
+            this.dgvUser.Size = new System.Drawing.Size(240, 397);
+            this.dgvUser.TabIndex = 13;
+            // 
+            // materialContextMenuStrip1
+            // 
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.посмотретьToolStripMenuItem,
+            this.удалитьToolStripMenuItem1,
+            this.извлечьВToolStripMenuItem,
+            this.информацияToolStripMenuItem});
+            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(138, 92);
+            // 
+            // посмотретьToolStripMenuItem
+            // 
+            this.посмотретьToolStripMenuItem.Name = "посмотретьToolStripMenuItem";
+            this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.посмотретьToolStripMenuItem.Text = "Посмотреть";
+            this.посмотретьToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
+            // 
+            // удалитьToolStripMenuItem1
+            // 
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
+            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // извлечьВToolStripMenuItem
+            // 
+            this.извлечьВToolStripMenuItem.Name = "извлечьВToolStripMenuItem";
+            this.извлечьВToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.извлечьВToolStripMenuItem.Text = "Извлечь в";
+            this.извлечьВToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
+            // 
+            // информацияToolStripMenuItem
+            // 
+            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.информацияToolStripMenuItem.Text = "Информация";
+            this.информацияToolStripMenuItem.Click += new System.EventHandler(this.InformationFile_Click);
+            // 
+            // cbUserId
+            // 
+            this.cbUserId.FormattingEnabled = true;
+            this.cbUserId.Location = new System.Drawing.Point(1056, 92);
+            this.cbUserId.Name = "cbUserId";
+            this.cbUserId.Size = new System.Drawing.Size(121, 21);
+            this.cbUserId.TabIndex = 15;
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(1055, 67);
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(121, 23);
+            this.materialSingleLineTextField1.TabIndex = 16;
+            this.materialSingleLineTextField1.Text = "ID пользователя";
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
+            // DeleteUser
+            // 
+            this.DeleteUser.AutoSize = true;
+            this.DeleteUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteUser.Depth = 0;
+            this.DeleteUser.Location = new System.Drawing.Point(1057, 120);
+            this.DeleteUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DeleteUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.DeleteUser.Name = "DeleteUser";
+            this.DeleteUser.Primary = false;
+            this.DeleteUser.Size = new System.Drawing.Size(76, 36);
+            this.DeleteUser.TabIndex = 17;
+            this.DeleteUser.Text = "Удалить";
+            this.DeleteUser.UseVisualStyleBackColor = true;
+            this.DeleteUser.Click += new System.EventHandler(this.DeleteUser_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Логин";
+            this.Column2.Name = "Column2";
+            // 
+            // hideTable
+            // 
+            this.hideTable.AutoSize = true;
+            this.hideTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hideTable.Depth = 0;
+            this.hideTable.Location = new System.Drawing.Point(1055, 168);
+            this.hideTable.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.hideTable.MouseState = MaterialSkin.MouseState.HOVER;
+            this.hideTable.Name = "hideTable";
+            this.hideTable.Primary = false;
+            this.hideTable.Size = new System.Drawing.Size(67, 36);
+            this.hideTable.TabIndex = 18;
+            this.hideTable.Text = "Скрыть";
+            this.hideTable.UseVisualStyleBackColor = true;
+            this.hideTable.Click += new System.EventHandler(this.hideTable_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1164, 465);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(807, 465);
+            this.Controls.Add(this.hideTable);
+            this.Controls.Add(this.DeleteUser);
+            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.cbUserId);
+            this.Controls.Add(this.dgvUser);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.SeeFile);
@@ -307,7 +435,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            this.materialContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,6 +460,17 @@
         private System.Windows.Forms.ToolStripMenuItem ExtractToolStripMenuItem;
         private MaterialSkin.Controls.MaterialFlatButton Upload;
         private System.Windows.Forms.Panel Panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUser;
+        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem посмотретьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem извлечьВToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbUserId;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialFlatButton DeleteUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private MaterialSkin.Controls.MaterialFlatButton hideTable;
     }
 }

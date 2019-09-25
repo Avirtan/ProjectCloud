@@ -307,7 +307,7 @@ namespace ProjectCloud
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Проверьте подключение к интернету или неверная почта");
             }
             finally
             {
@@ -344,7 +344,7 @@ namespace ProjectCloud
                     {
                         string text = "ВАШ ЛОГИН или Email: " + restore.Text + "\nПАРОЛЬ: " + reader[1].ToString();
                         SendMail.Send(reader[3].ToString(), text, "Cloud69");
-                        MessageBox.Show("отпарвиь");
+                        MessageBox.Show("Отправлено");
                     }
                 }
             }

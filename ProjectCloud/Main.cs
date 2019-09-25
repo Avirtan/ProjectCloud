@@ -16,6 +16,7 @@ using System.Collections;
 using System.IO.Compression;
 using System.Threading;
 using System.Security.AccessControl;
+using MySql.Data.MySqlClient;
 
 namespace ProjectCloud
 {
@@ -31,6 +32,7 @@ namespace ProjectCloud
         private string pass = "12345";
         byte[] key = { 60, 193, 108, 168, 202, 110, 29, 20, 202, 228, 187, 190, 27, 241, 75, 68, 81, 119, 125, 85, 190, 246, 40, 176, 145, 54, 27, 174, 67, 173, 46, 45 };
         byte[] iv = { 132, 193, 67, 244, 8, 174, 175, 121, 190, 248, 26, 32, 149, 151, 33, 89 };
+        private MySqlConnection conn;
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -42,7 +44,7 @@ namespace ProjectCloud
             if(User.staff == "0")
             {
                 Panel1.Visible = false;
-                contextMenuStrip1.Items[2].Dispose();
+                materialContextMenuStrip1.Items[1].Dispose();
             }
             if (User.staff == "1") SeeUser.Visible = false;
             if (User.Offline)
@@ -53,6 +55,7 @@ namespace ProjectCloud
                 SeeUser.Enabled = false;
                 contextMenuStrip1.Items[0].Dispose();
             }
+            if (!User.Offline) conn = Connection.GetDBConnection();
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -361,6 +364,74 @@ namespace ProjectCloud
                 }
                 MessageBox.Show("Размер: " + size.ToString() + "байт");
             }
+        }
+
+        private void SeeUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Size = new Size(1175, 465);
+                conn.Open();
+                string sql = "SELECT * FROM user ";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                int i = 0;
+                dgvUser.Rows.Clear();
+                cbUserId.Items.Clear();
+                dgvUser.AllowUserToResizeColumns = false;
+                dgvUser.AllowUserToResizeRows = false;
+                while (reader.Read())
+                {
+                    dgvUser.Rows.Add();
+                    dgvUser.Rows[i].Cells[0].Value = reader[0].ToString();
+                    dgvUser.Rows[i].Cells[1].Value = reader[2].ToString();
+                    dgvUser.Rows[i].ReadOnly = true;
+                    cbUserId.Items.Add(reader[0].ToString());
+                    i++;
+                }
+                if (cbUserId.Items.Count > 0) cbUserId.SelectedIndex = 0;
+                conn.Close();
+            }catch(Exception ex) { MessageBox.Show(ex.Message); conn.Close(); } 
+        }
+
+        private void DeleteUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbUserId.Text != "")
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM user where idUser = "+cbUserId.Text;
+                    MySqlCommand command = new MySqlCommand(sql, conn);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    string email = "";
+                    while (reader.Read()) email = reader[3].ToString();
+                    if (email != "") SendMail.Send(email, "Ваш аккаунт удалён", "Удаление аккаунта");
+                    else MessageBox.Show("У пользователя нет почты");
+                    conn.Close();
+                    conn.Open();
+                    sql = "DELETE FROM user where iduser = " + cbUserId.Text + "; ";
+                    command = new MySqlCommand(sql, conn);
+                    command.ExecuteNonQuery();
+                    if(email!="") MessageBox.Show("пользователь удалён");
+                    conn.Close();
+                    Button btn = new Button();
+                    btn.Click += SeeUser_Click;
+                    btn.PerformClick();
+                }
+                else
+                    MessageBox.Show("Выберете рабочего");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
+        private void hideTable_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(807, 465);
         }
     }
 }
