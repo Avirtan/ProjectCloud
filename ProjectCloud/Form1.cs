@@ -342,7 +342,7 @@ namespace ProjectCloud
                 {
                     if ((restore.Text == reader[2].ToString() || restore.Text == reader[3].ToString()))
                     {
-                        string text = "ВАШ ЛОГИН: " + Rlogin.Text + "\nПАРОЛЬ: " + reader[1].ToString();
+                        string text = "ВАШ ЛОГИН или Email: " + restore.Text + "\nПАРОЛЬ: " + reader[1].ToString();
                         SendMail.Send(reader[3].ToString(), text, "Cloud69");
                         MessageBox.Show("отпарвиь");
                     }

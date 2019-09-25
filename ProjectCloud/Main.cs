@@ -276,26 +276,32 @@ namespace ProjectCloud
                 {
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,@"Temp\1" + FileView.FocusedItem.Text);
-                    RijndaelHelper.DecryptFile(@"Temp\1" + FileView.FocusedItem.Text,path+ @"\" + FileView.FocusedItem.Text,key,iv);
+                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,@"Temp\" + FileView.FocusedItem.Text);
+                    RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text,path+ @"\" + FileView.FocusedItem.Text,key,iv);
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
                     using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                     {
-                        zip.AlternateEncoding = Encoding.UTF8;
-                        zip[FileView.FocusedItem.Text].ExtractWithPassword(@"Temp\1" + FileView.FocusedItem.Text, pass);
-                        RijndaelHelper.DecryptFile(@"Temp\1" + FileView.FocusedItem.Text, path + @"\" + FileView.FocusedItem.Text, key, iv);
+                        foreach (ZipEntry z in zip)
+                        {
+                            if (FileView.FocusedItem.Group.ToString() == "Локальные" && z.FileName == FileView.FocusedItem.Text)
+                            {
+                                z.ExtractWithPassword(@"Temp\", pass);
+                                break;
+                            }
+                        }
+                        RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, path + @"\" + FileView.FocusedItem.Text, key, iv);
                     }
                     RefreshButtonClick();
                 }
-                DeleteFolder();
             }
             catch(Exception ex){MessageBox.Show(ex.Message);}
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            DeleteFolder();
             Application.Exit();
         }
 
@@ -332,6 +338,29 @@ namespace ProjectCloud
             reader.Close();
             response.Close();
             return listFileFtp;
+        }
+
+        private void InformationFile_Click(object sender, EventArgs e)
+        {
+            long size = 0;
+            if (FileView.FocusedItem.Group.ToString() == "Глобальные" && CheckNetwork())
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl+ FileView.FocusedItem.Text);
+                request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                request.Method = WebRequestMethods.Ftp.GetFileSize;
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                size = response.ContentLength;
+                response.Close();
+                MessageBox.Show("Размер: "+size.ToString()+"байт");
+            }
+            if (FileView.FocusedItem.Group.ToString() == "Локальные" )
+            {
+                using (ZipFile zip = ZipFile.Read("Cloud.zip"))
+                {
+                   size = zip[FileView.FocusedItem.Text].CompressedSize;
+                }
+                MessageBox.Show("Размер: " + size.ToString() + "байт");
+            }
         }
     }
 }
