@@ -48,17 +48,6 @@ namespace ProjectCloud
                     }
                 }
             }
-            //using (var rijndael = new RijndaelManaged())
-            //{
-            //    rijndael.IV = iv;
-            //    rijndael.Key = key;
-            //    using (var inputStream = File.OpenRead(inputFile))
-            //    using (var decStream = new CryptoStream(inputStream, rijndael.CreateDecryptor(), CryptoStreamMode.Read))
-            //    using (var outputStream = new FileStream(outputFile, FileMode.Create, FileAccess.Write))
-            //    {
-            //        decStream.CopyTo(outputStream);
-            //    }
-            //}
         }
 
 

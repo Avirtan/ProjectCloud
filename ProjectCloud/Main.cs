@@ -420,7 +420,7 @@ namespace ProjectCloud
                     btn.PerformClick();
                 }
                 else
-                    MessageBox.Show("Выберете рабочего");
+                    MessageBox.Show("Выберете пользователя");
             }
             catch (Exception ex)
             {
