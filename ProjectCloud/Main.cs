@@ -251,7 +251,7 @@ namespace ProjectCloud
         {
             try
             {
-                if (CheckNetwork())
+                if (CheckNetwork() && FileView.FocusedItem.Group.ToString() == "Глобальные")
                 {
                     OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
                     if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
@@ -261,6 +261,17 @@ namespace ProjectCloud
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
                     RijndaelHelper.EncryptFile(filename,@"Temp\" + name,key,iv);
                     client.UploadFile(ftpUrl + name, @"Temp\"+ name);
+                    RefreshButtonClick();
+                }
+                if (FileView.FocusedItem.Group.ToString() == "Локальные")
+                {
+                    WebClient client = new WebClient();
+                    client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                    using (ZipFile zip = ZipFile.Read("Cloud.zip"))
+                    {
+                        zip[FileView.FocusedItem.Text].ExtractWithPassword(@"Temp\", pass);
+                        client.UploadFile(ftpUrl + FileView.FocusedItem.Text, @"Temp\" + FileView.FocusedItem.Text);
+                    }
                     RefreshButtonClick();
                 }
                 else MessageBox.Show("Нет интернета или выбран локальный файл");

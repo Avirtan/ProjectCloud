@@ -36,3 +36,4 @@ C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug
 C:\Users\svini\OneDrive\Desktop\проект\ProjectCloud\ProjectCloud\bin\Debug\DotNetZip.xml
 E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\учёба\Проект\ProjectCloud\ProjectCloud\bin\Debug\Ionic.Zip.dll
+E:\учёба\Проект\ProjectCloud\ProjectCloud\obj\Debug\ProjectCloud.AboutProgramm.resources

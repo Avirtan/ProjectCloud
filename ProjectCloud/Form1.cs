@@ -451,5 +451,11 @@ namespace ProjectCloud
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            AboutProgramm aboutProgramm = new AboutProgramm();
+            aboutProgramm.Visible = true;
+        }
     }
 }

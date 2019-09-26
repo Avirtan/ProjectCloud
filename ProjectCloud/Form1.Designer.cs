@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.mtb = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
             this.button1 = new System.Windows.Forms.Button();
             this.Aremember = new MaterialSkin.Controls.MaterialCheckBox();
@@ -82,6 +83,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.materialFlatButton1);
             this.tabPage1.Controls.Add(this.AuthOffline);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.Aremember);
@@ -96,6 +98,22 @@
             this.tabPage1.Size = new System.Drawing.Size(480, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
+            // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Location = new System.Drawing.Point(370, 365);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(110, 36);
+            this.materialFlatButton1.TabIndex = 9;
+            this.materialFlatButton1.Text = "О программе";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // AuthOffline
             // 
@@ -541,6 +559,7 @@
         private System.Windows.Forms.Button resetCaptch;
         private System.Windows.Forms.Button button1;
         private MaterialSkin.Controls.MaterialFlatButton AuthOffline;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }
 
