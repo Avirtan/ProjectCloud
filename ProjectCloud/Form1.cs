@@ -194,55 +194,55 @@ namespace ProjectCloud
             bool f = false;
             try
             {
-                conn = Connection.GetDBConnection();
-                conn.Open();
-                string sql = "SELECT * FROM user where (login = @login or email = @login) and pass  = @password";
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                command.Parameters.AddWithValue("@login", Alogin.Text);
-                command.Parameters.AddWithValue("@password", Apass.Text);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                if (Alogin.Text != "" && Apass.Text != "")
                 {
-                    if ((Alogin.Text == reader[2].ToString()|| Alogin.Text == reader[3].ToString()) && Apass.Text == reader[1].ToString())
+                    conn = Connection.GetDBConnection();
+                    conn.Open();
+                    string sql = "SELECT * FROM user where (login = @login or email = @login) and pass  = @password";
+                    MySqlCommand command = new MySqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@login", Alogin.Text);
+                    command.Parameters.AddWithValue("@password", Apass.Text);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        User.id = reader[0].ToString();
-                        User.pass = reader[1].ToString();
-                        User.login = reader[2].ToString();
-                        User.email = reader[3].ToString();
-                        User.staff = reader[4].ToString();
-                        User.Offline = false;
-                        Main form2 = new Main();
-                        form2.Show();
-                        this.Hide();
-                        f = true;
-                        if (Aremember.Checked)
+                        if ((Alogin.Text == reader[2].ToString() || Alogin.Text == reader[3].ToString()) && Apass.Text == reader[1].ToString())
                         {
-                            try
+                            User.id = reader[0].ToString();
+                            User.pass = reader[1].ToString();
+                            User.login = reader[2].ToString();
+                            User.email = reader[3].ToString();
+                            User.staff = reader[4].ToString();
+                            User.Offline = false;
+                            Main form2 = new Main();
+                            form2.Show();
+                            this.Hide();
+                            f = true;
+                            if (Aremember.Checked)
                             {
-                                using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                                try
                                 {
-                                    sw.WriteLine(Alogin.Text);
-                                    sw.WriteLine(Apass.Text);
+                                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
+                                    {
+                                        sw.WriteLine(Alogin.Text);
+                                        sw.WriteLine(Apass.Text);
+                                    }
+                                }
+                                catch { }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    File.Delete("1.txt");
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
                                 }
                             }
-                            catch { }
-                        }
-                        else
-                        {
-                            try
-                            {
-                                using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
-                                {
-                                    sw.WriteLine("");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
-                        }
-                        break;
-                    };
+                            break;
+                        };
+                    }
                 }
                 if (!f)
                     MessageBox.Show("неверный логин или пароль");
@@ -297,6 +297,7 @@ namespace ProjectCloud
                         Rmail.Text = "";
                         Rpass2.Text = "";
                         hardpass.Text = "";
+                        MessageBox.Show("Вы зарегистрированы");
                     }
                     else
                         MessageBox.Show(error);
@@ -305,7 +306,7 @@ namespace ProjectCloud
                     MessageBox.Show("неверные данные, или неверная капча, проверьте подключение к интернету");
 
             }
-            catch (Exception ex)
+            catch 
             {
                 MessageBox.Show("Проверьте подключение к интернету или неверная почта");
             }
@@ -315,18 +316,7 @@ namespace ProjectCloud
             }
             pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
-
-        private void Rpass_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            hardpass.Text = Password.PasswordStrength(Rpass.Text).ToString();
-            switch (Password.PasswordStrength(Rpass.Text).ToString())
-            {
-                case "Простой":hardpass.Text = "Простой";hardpass.ForeColor = Color.Green;break;
-                case "Средний": hardpass.Text = "Средний"; hardpass.ForeColor = Color.Yellow; break;
-                case "Сложный": hardpass.Text = "Сложный"; hardpass.ForeColor = Color.Red; break;
-            }
-        }
-        
+       
         private void RestorePass_Click(object sender, EventArgs e)
         {
             conn = Connection.GetDBConnection();
@@ -396,13 +386,7 @@ namespace ProjectCloud
             }
             else
             {
-                try
-                {
-                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
-                    {
-                        sw.WriteLine("");
-                    }
-                }
+                try{File.Delete("1.txt");}
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -438,13 +422,7 @@ namespace ProjectCloud
                     }
                     
                 }
-                else
-                {
-                    using (StreamWriter sw = new StreamWriter("1.txt", false, System.Text.Encoding.Default))
-                    {
-                        sw.WriteLine("");
-                    }
-                }
+                else{File.Delete("1.txt");}
             }
             catch (Exception ex)
             {
@@ -456,6 +434,19 @@ namespace ProjectCloud
         {
             AboutProgramm aboutProgramm = new AboutProgramm();
             aboutProgramm.Visible = true;
+        }
+
+        private void Rpass_TextChanged(object sender, EventArgs e)
+        {
+            hardpass.Text = Password.PasswordStrength(Rpass.Text).ToString();
+            if (Rpass.Text != "")
+                switch (Password.PasswordStrength(Rpass.Text).ToString())
+                {
+                    case "Простой": hardpass.Text = "Простой"; hardpass.ForeColor = Color.Red; break;
+                    case "Средний": hardpass.Text = "Средний"; hardpass.ForeColor = Color.Yellow; break;
+                    case "Сложный": hardpass.Text = "Сложный"; hardpass.ForeColor = Color.Green; break;
+                }
+            if (Rpass.Text == "") hardpass.Text = "";
         }
     }
 }

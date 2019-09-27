@@ -358,7 +358,7 @@
             this.Rpass.Size = new System.Drawing.Size(265, 23);
             this.Rpass.TabIndex = 5;
             this.Rpass.UseSystemPasswordChar = false;
-            this.Rpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Rpass_KeyPress);
+            this.Rpass.TextChanged += new System.EventHandler(this.Rpass_TextChanged);
             // 
             // Rlogin
             // 

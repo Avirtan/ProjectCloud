@@ -30,16 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Локальные", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Глобальные", System.Windows.Forms.HorizontalAlignment.Left);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.FileView = new System.Windows.Forms.ListView();
+            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.посмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.извлечьВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InformationFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.RefreshFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.SeeFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.Down = new MaterialSkin.Controls.MaterialFlatButton();
@@ -50,21 +54,16 @@
             this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.посмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.извлечьВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbUserId = new System.Windows.Forms.ComboBox();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.DeleteUser = new MaterialSkin.Controls.MaterialFlatButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hideTable = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialContextMenuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
-            this.materialContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -77,13 +76,13 @@
             // FileView
             // 
             this.FileView.ContextMenuStrip = this.materialContextMenuStrip1;
-            listViewGroup3.Header = "Локальные";
-            listViewGroup3.Name = "local";
-            listViewGroup4.Header = "Глобальные";
-            listViewGroup4.Name = "global";
+            listViewGroup1.Header = "Локальные";
+            listViewGroup1.Name = "local";
+            listViewGroup2.Header = "Глобальные";
+            listViewGroup2.Name = "global";
             this.FileView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.FileView.LargeImageList = this.imageList1;
             this.FileView.Location = new System.Drawing.Point(252, 64);
             this.FileView.Margin = new System.Windows.Forms.Padding(2);
@@ -92,6 +91,47 @@
             this.FileView.SmallImageList = this.imageList1;
             this.FileView.TabIndex = 1;
             this.FileView.UseCompatibleStateImageBehavior = false;
+            // 
+            // materialContextMenuStrip1
+            // 
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.посмотретьToolStripMenuItem,
+            this.удалитьToolStripMenuItem1,
+            this.извлечьВToolStripMenuItem,
+            this.информацияToolStripMenuItem});
+            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(138, 92);
+            // 
+            // посмотретьToolStripMenuItem
+            // 
+            this.посмотретьToolStripMenuItem.Name = "посмотретьToolStripMenuItem";
+            this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.посмотретьToolStripMenuItem.Text = "Посмотреть";
+            this.посмотретьToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
+            // 
+            // удалитьToolStripMenuItem1
+            // 
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
+            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // извлечьВToolStripMenuItem
+            // 
+            this.извлечьВToolStripMenuItem.Name = "извлечьВToolStripMenuItem";
+            this.извлечьВToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.извлечьВToolStripMenuItem.Text = "Извлечь в";
+            this.извлечьВToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
+            // 
+            // информацияToolStripMenuItem
+            // 
+            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.информацияToolStripMenuItem.Text = "Информация";
+            this.информацияToolStripMenuItem.Click += new System.EventHandler(this.InformationFile_Click);
             // 
             // contextMenuStrip1
             // 
@@ -139,17 +179,6 @@
             this.InformationFile.Size = new System.Drawing.Size(158, 22);
             this.InformationFile.Text = "Информация";
             this.InformationFile.Click += new System.EventHandler(this.InformationFile_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 438);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RefreshFile
             // 
@@ -302,46 +331,15 @@
             this.dgvUser.Size = new System.Drawing.Size(240, 397);
             this.dgvUser.TabIndex = 13;
             // 
-            // materialContextMenuStrip1
+            // Column1
             // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip1.Depth = 0;
-            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.посмотретьToolStripMenuItem,
-            this.удалитьToolStripMenuItem1,
-            this.извлечьВToolStripMenuItem,
-            this.информацияToolStripMenuItem});
-            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(138, 92);
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
             // 
-            // посмотретьToolStripMenuItem
+            // Column2
             // 
-            this.посмотретьToolStripMenuItem.Name = "посмотретьToolStripMenuItem";
-            this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.посмотретьToolStripMenuItem.Text = "Посмотреть";
-            this.посмотретьToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
-            // 
-            // удалитьToolStripMenuItem1
-            // 
-            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
-            this.удалитьToolStripMenuItem1.Text = "Удалить";
-            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.DeleteFile_Click);
-            // 
-            // извлечьВToolStripMenuItem
-            // 
-            this.извлечьВToolStripMenuItem.Name = "извлечьВToolStripMenuItem";
-            this.извлечьВToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.извлечьВToolStripMenuItem.Text = "Извлечь в";
-            this.извлечьВToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
-            // 
-            // информацияToolStripMenuItem
-            // 
-            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.информацияToolStripMenuItem.Text = "Информация";
-            this.информацияToolStripMenuItem.Click += new System.EventHandler(this.InformationFile_Click);
+            this.Column2.HeaderText = "Логин";
+            this.Column2.Name = "Column2";
             // 
             // cbUserId
             // 
@@ -383,16 +381,6 @@
             this.DeleteUser.UseVisualStyleBackColor = true;
             this.DeleteUser.Click += new System.EventHandler(this.DeleteUser_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Логин";
-            this.Column2.Name = "Column2";
-            // 
             // hideTable
             // 
             this.hideTable.AutoSize = true;
@@ -423,7 +411,6 @@
             this.Controls.Add(this.Down);
             this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.FileView);
             this.MaximizeBox = false;
             this.Name = "Main";
@@ -432,11 +419,11 @@
             this.Text = "Файл Сервер";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.materialContextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
-            this.materialContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,7 +432,6 @@
         #endregion
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView FileView;
-        private System.Windows.Forms.Button button1;
         private MaterialSkin.Controls.MaterialFlatButton RefreshFile;
         private MaterialSkin.Controls.MaterialFlatButton SeeFile;
         private MaterialSkin.Controls.MaterialFlatButton Down;

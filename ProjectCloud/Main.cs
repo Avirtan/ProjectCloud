@@ -41,7 +41,7 @@ namespace ProjectCloud
             skin.AddFormToManage(this);
             skin.Theme = MaterialSkinManager.Themes.DARK;
             skin.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            if(User.staff == "0")
+            if (User.staff == "0")
             {
                 Panel1.Visible = false;
                 materialContextMenuStrip1.Items[1].Dispose();
@@ -56,12 +56,15 @@ namespace ProjectCloud
                 contextMenuStrip1.Items[0].Dispose();
             }
             if (!User.Offline) conn = Connection.GetDBConnection();
-        }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ZipFile zip = new ZipFile();
-            zip.Save("Cloud.zip");
+            try
+            {
+                ZipFile zip = ZipFile.Read("Cloud.zip");
+            }
+            catch
+            {
+                ZipFile zip = new ZipFile();
+                zip.Save("Cloud.zip");
+            }   
         }
 
         private bool CheckNetwork()
