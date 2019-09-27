@@ -81,16 +81,16 @@ namespace ProjectCloud
                 if (CheckNetwork())
                 {
                     ArrayList listFileFtp = GetDirectoryList();
-                    RefreshViewList(listFileFtp, 1,1);
+                    RefreshViewList(listFileFtp, 1, 1);
                 }
                 using (ZipFile zip = ZipFile.Read("Cloud.zip"))
                 {
                     ArrayList listFileZip = new ArrayList();
                     foreach (ZipEntry z in zip) listFileZip.Add(z.FileName);
-                    RefreshViewList(listFileZip, 0,0);
+                    RefreshViewList(listFileZip, 0, 0);
                 }
             }
-            catch (Exception ex){MessageBox.Show(ex.Message);}
+            catch { }// (Exception ex){MessageBox.Show(ex.Message);}
         }
         
         private void DeleteFile_Click(object sender, EventArgs e)
@@ -124,18 +124,18 @@ namespace ProjectCloud
             try
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
-                if (openFileDialog1.ShowDialog() == DialogResult.Cancel)return;
+                if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
                 string filename = openFileDialog1.FileName;
                 ZipFile zip = ZipFile.Read("Cloud.zip");
                 zip.AlternateEncoding = Encoding.UTF8;
-                string encriptFile = "Temp\\"+filename.Split('\\')[filename.Split('\\').Length - 1];
-                RijndaelHelper.EncryptFile(filename,encriptFile,key,iv);
+                string encriptFile = "Temp\\" + filename.Split('\\')[filename.Split('\\').Length - 1];
+                RijndaelHelper.EncryptFile(filename, encriptFile, key, iv);
                 zip.Password = pass;
                 zip.AddFile(encriptFile, "");
                 zip.Save();
                 RefreshButtonClick();
             }
-            catch(Exception ex){MessageBox.Show(ex.Message);}
+            catch { }//(Exception ex){MessageBox.Show(ex.Message);}
         }
 
         private void SeeFile_Click(object sender, EventArgs e)
@@ -150,19 +150,19 @@ namespace ProjectCloud
                     {
                         if (FileView.FocusedItem.Group.ToString() == "Локальные" && z.FileName == FileView.FocusedItem.Text)
                         {
-                            z.ExtractWithPassword(@"Temp\", pass);  
+                            z.ExtractWithPassword(@"Temp\", pass);
                             break;
                         }
                     }
                 }
-                RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, @"Temp\" +"1"+FileView.FocusedItem.Text, key, iv);
+                RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, @"Temp\" + "1" + FileView.FocusedItem.Text, key, iv);
                 string commandText = @"Temp\" + "1" + FileView.FocusedItem.Text;
                 var proc = new System.Diagnostics.Process();
                 proc.StartInfo.FileName = commandText;
                 proc.StartInfo.UseShellExecute = true;
                 proc.Start();
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            catch { }//(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Sync_Click(object sender, EventArgs e)
@@ -171,7 +171,6 @@ namespace ProjectCloud
            { 
                 if (CheckNetwork())
                 {
-                    //DeleteFolder();
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
                     ArrayList FileName = new ArrayList();
@@ -262,8 +261,8 @@ namespace ProjectCloud
                     string name = filename.Split('\\')[filename.Split('\\').Length - 1];
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    RijndaelHelper.EncryptFile(filename,@"Temp\" + name,key,iv);
-                    client.UploadFile(ftpUrl + name, @"Temp\"+ name);
+                    RijndaelHelper.EncryptFile(filename, @"Temp\" + name, key, iv);
+                    client.UploadFile(ftpUrl + name, @"Temp\" + name);
                     RefreshButtonClick();
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
@@ -279,7 +278,7 @@ namespace ProjectCloud
                 }
                 else MessageBox.Show("Нет интернета или выбран локальный файл");
             }
-            catch(Exception ex){ MessageBox.Show(ex.Message); }
+            catch { }//(Exception ex){ MessageBox.Show(ex.Message); }
         }
 
         private void ExtractToolStripMenuItem_Click(object sender, EventArgs e)
@@ -293,8 +292,8 @@ namespace ProjectCloud
                 {
                     WebClient client = new WebClient();
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,@"Temp\" + FileView.FocusedItem.Text);
-                    RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text,path+ @"\" + FileView.FocusedItem.Text,key,iv);
+                    client.DownloadFile(ftpUrl + FileView.FocusedItem.Text, @"Temp\" + FileView.FocusedItem.Text);
+                    RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, path + @"\" + FileView.FocusedItem.Text, key, iv);
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
@@ -313,7 +312,7 @@ namespace ProjectCloud
                     RefreshButtonClick();
                 }
             }
-            catch(Exception ex){MessageBox.Show(ex.Message);}
+            catch { }//(Exception ex){MessageBox.Show(ex.Message);}
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -405,7 +404,8 @@ namespace ProjectCloud
                 }
                 if (cbUserId.Items.Count > 0) cbUserId.SelectedIndex = 0;
                 conn.Close();
-            }catch(Exception ex) { MessageBox.Show(ex.Message); conn.Close(); } 
+            }
+            catch { }//catch(Exception ex) { MessageBox.Show(ex.Message); conn.Close(); } 
         }
 
         private void DeleteUser_Click(object sender, EventArgs e)
@@ -436,9 +436,9 @@ namespace ProjectCloud
                 else
                     MessageBox.Show("Выберете пользователя");
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
                 conn.Close();
             }
         }
