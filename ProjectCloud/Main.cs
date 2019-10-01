@@ -64,7 +64,8 @@ namespace ProjectCloud
             {
                 ZipFile zip = new ZipFile();
                 zip.Save("Cloud.zip");
-            }   
+            }
+            RefreshButtonClick();
         }
 
         private bool CheckNetwork()
