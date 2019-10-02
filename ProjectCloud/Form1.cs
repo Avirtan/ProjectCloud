@@ -170,7 +170,7 @@ namespace ProjectCloud
             var skin = MaterialSkinManager.Instance;
             skin.AddFormToManage(this);
             skin.Theme = MaterialSkinManager.Themes.DARK;
-            skin.ColorScheme = new ColorScheme(Primary.BlueGrey800,Primary.BlueGrey900,Primary.BlueGrey500,Accent.LightBlue200,TextShade.WHITE);
+            skin.ColorScheme = new ColorScheme(Primary.Green900,Primary.BlueGrey900,Primary.BlueGrey900,Accent.Green700, TextShade.WHITE);
             conn = Connection.GetDBConnection();
             try
             {
@@ -251,7 +251,7 @@ namespace ProjectCloud
                     };
                 }
                 if (!f)
-                    MessageBox.Show("неверный логин или пароль");
+                    MessageBox.Show("Неверный логин или пароль");
             }
             catch (Exception ex)
             {
@@ -284,7 +284,7 @@ namespace ProjectCloud
                         };
                         if (Rmail.Text == reader[3].ToString() && Rmail.Text != "")
                         {
-                            error = "email уже занят";
+                            error = "Email уже занят";
                             break;
                         };
                     }
@@ -308,7 +308,7 @@ namespace ProjectCloud
                         MessageBox.Show(error);
                 }
                 else
-                    MessageBox.Show("неверные данные, или неверная капча, проверьте подключение к интернету");
+                    MessageBox.Show("Неверные данные, или неверная капча, проверьте подключение к интернету");
 
             }
             catch (Exception ex)
@@ -327,9 +327,9 @@ namespace ProjectCloud
             hardpass.Text = Password.PasswordStrength(Rpass.Text).ToString();
             switch (Password.PasswordStrength(Rpass.Text).ToString())
             {
-                case "Простой":hardpass.Text = "Простой";hardpass.ForeColor = Color.Green;break;
+                case "Простой":hardpass.Text = "Простой";hardpass.ForeColor = Color.Red;break;
                 case "Средний": hardpass.Text = "Средний"; hardpass.ForeColor = Color.Yellow; break;
-                case "Сложный": hardpass.Text = "Сложный"; hardpass.ForeColor = Color.Red; break;
+                case "Сложный": hardpass.Text = "Сложный"; hardpass.ForeColor = Color.Green; break;
             }
         }
         
@@ -350,7 +350,7 @@ namespace ProjectCloud
                     {
                         string text = "ВАШ ЛОГИН: " + Rlogin.Text + "\nПАРОЛЬ: " + reader[1].ToString();
                         SendMail.Send(reader[3].ToString(), text, "Cloud69");
-                        MessageBox.Show("отпарвиь");
+                        MessageBox.Show("Отправить");
                     }
                 }
             }
@@ -377,11 +377,6 @@ namespace ProjectCloud
             RestorePass.Enabled = true;
             timer1.Enabled = false;
             flag = 0;
-        }
-
-        private void resetCaptch_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -431,5 +426,11 @@ namespace ProjectCloud
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void PictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
+        }
+
     }
 }

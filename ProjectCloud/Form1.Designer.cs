@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mtb = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
             this.button1 = new System.Windows.Forms.Button();
             this.Aremember = new MaterialSkin.Controls.MaterialCheckBox();
             this.Apass = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -39,7 +41,6 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.resetCaptch = new System.Windows.Forms.Button();
             this.captch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.hardpass = new MaterialSkin.Controls.MaterialLabel();
@@ -55,15 +56,16 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.RestorePass = new MaterialSkin.Controls.MaterialFlatButton();
             this.restore = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.AuthOffline = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // mtb
@@ -97,13 +99,29 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
             // 
+            // AuthOffline
+            // 
+            this.AuthOffline.AutoSize = true;
+            this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AuthOffline.Depth = 0;
+            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
+            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AuthOffline.Name = "AuthOffline";
+            this.AuthOffline.Primary = false;
+            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
+            this.AuthOffline.TabIndex = 8;
+            this.AuthOffline.Text = "Войти Автономно";
+            this.AuthOffline.UseVisualStyleBackColor = true;
+            this.AuthOffline.Click += new System.EventHandler(this.AuthOffline_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(33, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -143,7 +161,7 @@
             this.Auth.AutoSize = true;
             this.Auth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Auth.Depth = 0;
-            this.Auth.Location = new System.Drawing.Point(166, 237);
+            this.Auth.Location = new System.Drawing.Point(207, 237);
             this.Auth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Auth.MouseState = MaterialSkin.MouseState.HOVER;
             this.Auth.Name = "Auth";
@@ -198,7 +216,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.resetCaptch);
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.captch);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.hardpass);
@@ -217,16 +235,6 @@
             this.tabPage2.Size = new System.Drawing.Size(480, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регистрация";
-            // 
-            // resetCaptch
-            // 
-            this.resetCaptch.Location = new System.Drawing.Point(294, 238);
-            this.resetCaptch.Name = "resetCaptch";
-            this.resetCaptch.Size = new System.Drawing.Size(75, 23);
-            this.resetCaptch.TabIndex = 12;
-            this.resetCaptch.Text = "обновить";
-            this.resetCaptch.UseVisualStyleBackColor = true;
-            this.resetCaptch.Click += new System.EventHandler(this.resetCaptch_Click);
             // 
             // captch
             // 
@@ -437,19 +445,6 @@
             this.restore.TabIndex = 1;
             this.restore.UseSystemPasswordChar = false;
             // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(158, 39);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(131, 19);
-            this.materialLabel7.TabIndex = 0;
-            this.materialLabel7.Text = "Почта или Логин";
-            // 
             // mtbSelect
             // 
             this.mtbSelect.BaseTabControl = this.mtb;
@@ -461,6 +456,7 @@
             this.mtbSelect.Size = new System.Drawing.Size(488, 23);
             this.mtbSelect.TabIndex = 1;
             this.mtbSelect.Text = "materialTabSelector1";
+            this.mtbSelect.Click += new System.EventHandler(this.MtbSelect_Click);
             // 
             // timer1
             // 
@@ -468,21 +464,29 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // AuthOffline
+            // pictureBox2
             // 
-            this.AuthOffline.AutoSize = true;
-            this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AuthOffline.Depth = 0;
-            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
-            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AuthOffline.Name = "AuthOffline";
-            this.AuthOffline.Primary = false;
-            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
-            this.AuthOffline.TabIndex = 8;
-            this.AuthOffline.Text = "Войти Автономно";
-            this.AuthOffline.UseVisualStyleBackColor = true;
-            this.AuthOffline.Click += new System.EventHandler(this.AuthOffline_Click);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(431, 181);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBox2_MouseClick);
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(157, 32);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(131, 19);
+            this.materialLabel7.TabIndex = 0;
+            this.materialLabel7.Text = "Логин или Почта";
             // 
             // Form1
             // 
@@ -505,6 +509,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -533,14 +538,14 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialFlatButton RestorePass;
         private MaterialSkin.Controls.MaterialSingleLineTextField restore;
-        private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel hardpass;
         private System.Windows.Forms.Timer timer1;
         private MaterialSkin.Controls.MaterialSingleLineTextField captch;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button resetCaptch;
         private System.Windows.Forms.Button button1;
         private MaterialSkin.Controls.MaterialFlatButton AuthOffline;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
     }
 }
 
