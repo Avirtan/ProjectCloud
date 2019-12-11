@@ -432,5 +432,16 @@ namespace ProjectCloud
             pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
 
+        private void PictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            Rpass.UseSystemPasswordChar = false;
+            Rpass2.UseSystemPasswordChar = false;
+        }
+
+        private void PictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            Rpass.UseSystemPasswordChar = true;
+            Rpass2.UseSystemPasswordChar = true;
+        }
     }
 }

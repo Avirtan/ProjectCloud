@@ -38,7 +38,9 @@
             this.SaveDownMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.RefreshFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.SeeFile = new MaterialSkin.Controls.MaterialFlatButton();
@@ -47,7 +49,6 @@
             this.DeleteFile = new MaterialSkin.Controls.MaterialFlatButton();
             this.SeeUser = new MaterialSkin.Controls.MaterialFlatButton();
             this.Sync = new MaterialSkin.Controls.MaterialFlatButton();
-            this.ExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Upload = new MaterialSkin.Controls.MaterialFlatButton();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
@@ -58,8 +59,8 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Безымянный.png");
-            this.imageList1.Images.SetKeyName(1, "Безымянный1.png");
+            this.imageList1.Images.SetKeyName(0, "gLobal.jpg");
+            this.imageList1.Images.SetKeyName(1, "Local1.jpg");
             // 
             // FileView
             // 
@@ -71,12 +72,13 @@
             this.FileView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2});
+            this.FileView.HideSelection = false;
             this.FileView.LargeImageList = this.imageList1;
             this.FileView.Location = new System.Drawing.Point(252, 64);
             this.FileView.Margin = new System.Windows.Forms.Padding(2);
             this.FileView.Name = "FileView";
             this.FileView.Size = new System.Drawing.Size(553, 397);
-            this.FileView.SmallImageList = this.imageList1;
+            this.FileView.SmallImageList = this.imageList2;
             this.FileView.TabIndex = 1;
             this.FileView.UseCompatibleStateImageBehavior = false;
             // 
@@ -90,14 +92,14 @@
             this.ExtractToolStripMenuItem,
             this.информацияToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 114);
             // 
             // SaveDownMenuItem
             // 
             this.SaveDownMenuItem.BackColor = System.Drawing.Color.Black;
             this.SaveDownMenuItem.ForeColor = System.Drawing.Color.White;
             this.SaveDownMenuItem.Name = "SaveDownMenuItem";
-            this.SaveDownMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SaveDownMenuItem.Size = new System.Drawing.Size(164, 22);
             this.SaveDownMenuItem.Text = "Скачать";
             this.SaveDownMenuItem.Click += new System.EventHandler(this.Down_Click);
             // 
@@ -106,7 +108,7 @@
             this.SeeToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.SeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.SeeToolStripMenuItem.Name = "SeeToolStripMenuItem";
-            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.SeeToolStripMenuItem.Text = "Посмотреть";
             this.SeeToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
             // 
@@ -115,17 +117,32 @@
             this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.удалитьToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // ExtractToolStripMenuItem
+            // 
+            this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
+            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.ExtractToolStripMenuItem.Text = "Извлечь в папку";
+            this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
             // информацияToolStripMenuItem
             // 
             this.информацияToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.информацияToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.информацияToolStripMenuItem.Text = "Информация";
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Local1.jpg");
             // 
             // button1
             // 
@@ -248,15 +265,6 @@
             this.Sync.UseVisualStyleBackColor = true;
             this.Sync.Click += new System.EventHandler(this.Sync_Click);
             // 
-            // ExtractToolStripMenuItem
-            // 
-            this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
-            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
-            this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
-            // 
             // Upload
             // 
             this.Upload.AutoSize = true;
@@ -296,10 +304,11 @@
             this.Controls.Add(this.RefreshFile);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.FileView);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файл Сервер";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
@@ -328,5 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem ExtractToolStripMenuItem;
         private MaterialSkin.Controls.MaterialFlatButton Upload;
         private System.Windows.Forms.Panel Panel1;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }

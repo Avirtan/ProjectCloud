@@ -41,6 +41,8 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.captch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.hardpass = new MaterialSkin.Controls.MaterialLabel();
@@ -56,16 +58,16 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.RestorePass = new MaterialSkin.Controls.MaterialFlatButton();
             this.restore = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtbSelect = new MaterialSkin.Controls.MaterialTabSelector();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.mtb.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // mtb
@@ -216,6 +218,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.pictureBox3);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.captch);
             this.tabPage2.Controls.Add(this.pictureBox1);
@@ -235,6 +238,29 @@
             this.tabPage2.Size = new System.Drawing.Size(480, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регистрация";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(294, 106);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 23);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.PictureBox3_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.PictureBox3_MouseLeave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(431, 181);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBox2_MouseClick);
             // 
             // captch
             // 
@@ -310,13 +336,13 @@
             this.Rpass2.Location = new System.Drawing.Point(9, 208);
             this.Rpass2.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass2.Name = "Rpass2";
-            this.Rpass2.PasswordChar = '*';
+            this.Rpass2.PasswordChar = '\0';
             this.Rpass2.SelectedText = "";
             this.Rpass2.SelectionLength = 0;
             this.Rpass2.SelectionStart = 0;
             this.Rpass2.Size = new System.Drawing.Size(265, 23);
             this.Rpass2.TabIndex = 6;
-            this.Rpass2.UseSystemPasswordChar = false;
+            this.Rpass2.UseSystemPasswordChar = true;
             // 
             // Rpass
             // 
@@ -325,13 +351,13 @@
             this.Rpass.Location = new System.Drawing.Point(9, 132);
             this.Rpass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass.Name = "Rpass";
-            this.Rpass.PasswordChar = '*';
+            this.Rpass.PasswordChar = '\0';
             this.Rpass.SelectedText = "";
             this.Rpass.SelectionLength = 0;
             this.Rpass.SelectionStart = 0;
             this.Rpass.Size = new System.Drawing.Size(265, 23);
             this.Rpass.TabIndex = 5;
-            this.Rpass.UseSystemPasswordChar = false;
+            this.Rpass.UseSystemPasswordChar = true;
             this.Rpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Rpass_KeyPress);
             // 
             // Rlogin
@@ -445,36 +471,6 @@
             this.restore.TabIndex = 1;
             this.restore.UseSystemPasswordChar = false;
             // 
-            // mtbSelect
-            // 
-            this.mtbSelect.BaseTabControl = this.mtb;
-            this.mtbSelect.Depth = 0;
-            this.mtbSelect.Location = new System.Drawing.Point(2, 52);
-            this.mtbSelect.MaximumSize = new System.Drawing.Size(488, 23);
-            this.mtbSelect.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mtbSelect.Name = "mtbSelect";
-            this.mtbSelect.Size = new System.Drawing.Size(488, 23);
-            this.mtbSelect.TabIndex = 1;
-            this.mtbSelect.Text = "materialTabSelector1";
-            this.mtbSelect.Click += new System.EventHandler(this.MtbSelect_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(431, 181);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBox2_MouseClick);
-            // 
             // materialLabel7
             // 
             this.materialLabel7.AutoSize = true;
@@ -488,6 +484,24 @@
             this.materialLabel7.TabIndex = 0;
             this.materialLabel7.Text = "Логин или Почта";
             // 
+            // mtbSelect
+            // 
+            this.mtbSelect.BaseTabControl = this.mtb;
+            this.mtbSelect.Depth = 0;
+            this.mtbSelect.Location = new System.Drawing.Point(2, 52);
+            this.mtbSelect.MaximumSize = new System.Drawing.Size(488, 23);
+            this.mtbSelect.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mtbSelect.Name = "mtbSelect";
+            this.mtbSelect.Size = new System.Drawing.Size(488, 23);
+            this.mtbSelect.TabIndex = 1;
+            this.mtbSelect.Text = "materialTabSelector1";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,6 +509,7 @@
             this.ClientSize = new System.Drawing.Size(491, 489);
             this.Controls.Add(this.mtbSelect);
             this.Controls.Add(this.mtb);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(491, 489);
             this.MinimumSize = new System.Drawing.Size(491, 489);
             this.Name = "Form1";
@@ -506,10 +521,11 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,6 +562,7 @@
         private MaterialSkin.Controls.MaterialFlatButton AuthOffline;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

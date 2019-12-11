@@ -336,5 +336,10 @@ namespace ProjectCloud
             }
             catch (Exception ex){MessageBox.Show("Файл уже существует");}
         }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
