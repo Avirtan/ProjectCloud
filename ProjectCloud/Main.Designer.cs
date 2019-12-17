@@ -84,10 +84,10 @@
             listViewGroup1,
             listViewGroup2});
             this.FileView.LargeImageList = this.imageList1;
-            this.FileView.Location = new System.Drawing.Point(252, 64);
-            this.FileView.Margin = new System.Windows.Forms.Padding(2);
+            this.FileView.Location = new System.Drawing.Point(336, 79);
+            this.FileView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FileView.Name = "FileView";
-            this.FileView.Size = new System.Drawing.Size(553, 397);
+            this.FileView.Size = new System.Drawing.Size(736, 488);
             this.FileView.SmallImageList = this.imageList1;
             this.FileView.TabIndex = 1;
             this.FileView.UseCompatibleStateImageBehavior = false;
@@ -96,6 +96,7 @@
             // 
             this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.посмотретьToolStripMenuItem,
             this.удалитьToolStripMenuItem1,
@@ -103,53 +104,54 @@
             this.информацияToolStripMenuItem});
             this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(138, 92);
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(172, 100);
             // 
             // посмотретьToolStripMenuItem
             // 
             this.посмотретьToolStripMenuItem.Name = "посмотретьToolStripMenuItem";
-            this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.посмотретьToolStripMenuItem.Text = "Посмотреть";
             this.посмотретьToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
             // 
             // удалитьToolStripMenuItem1
             // 
             this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(171, 24);
             this.удалитьToolStripMenuItem1.Text = "Удалить";
             this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.DeleteFile_Click);
             // 
             // извлечьВToolStripMenuItem
             // 
             this.извлечьВToolStripMenuItem.Name = "извлечьВToolStripMenuItem";
-            this.извлечьВToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.извлечьВToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.извлечьВToolStripMenuItem.Text = "Извлечь в";
             this.извлечьВToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
             // информацияToolStripMenuItem
             // 
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.информацияToolStripMenuItem.Text = "Информация";
             this.информацияToolStripMenuItem.Click += new System.EventHandler(this.InformationFile_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SeeToolStripMenuItem,
             this.удалитьToolStripMenuItem,
             this.ExtractToolStripMenuItem,
             this.InformationFile});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 100);
             // 
             // SeeToolStripMenuItem
             // 
             this.SeeToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.SeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.SeeToolStripMenuItem.Name = "SeeToolStripMenuItem";
-            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.SeeToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
             this.SeeToolStripMenuItem.Text = "Посмотреть";
             this.SeeToolStripMenuItem.Click += new System.EventHandler(this.SeeFile_Click);
             // 
@@ -158,7 +160,7 @@
             this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.удалитьToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.DeleteFile_Click);
             // 
@@ -167,7 +169,7 @@
             this.ExtractToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.ExtractToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ExtractToolStripMenuItem.Name = "ExtractToolStripMenuItem";
-            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ExtractToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
             this.ExtractToolStripMenuItem.Text = "Извелчь в папку";
             this.ExtractToolStripMenuItem.Click += new System.EventHandler(this.ExtractToolStripMenuItem_Click);
             // 
@@ -176,7 +178,7 @@
             this.InformationFile.BackColor = System.Drawing.Color.Black;
             this.InformationFile.ForeColor = System.Drawing.Color.White;
             this.InformationFile.Name = "InformationFile";
-            this.InformationFile.Size = new System.Drawing.Size(158, 22);
+            this.InformationFile.Size = new System.Drawing.Size(192, 24);
             this.InformationFile.Text = "Информация";
             this.InformationFile.Click += new System.EventHandler(this.InformationFile_Click);
             // 
@@ -185,12 +187,12 @@
             this.RefreshFile.AutoSize = true;
             this.RefreshFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RefreshFile.Depth = 0;
-            this.RefreshFile.Location = new System.Drawing.Point(12, 66);
-            this.RefreshFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RefreshFile.Location = new System.Drawing.Point(16, 81);
+            this.RefreshFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.RefreshFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.RefreshFile.Name = "RefreshFile";
             this.RefreshFile.Primary = false;
-            this.RefreshFile.Size = new System.Drawing.Size(140, 36);
+            this.RefreshFile.Size = new System.Drawing.Size(173, 36);
             this.RefreshFile.TabIndex = 4;
             this.RefreshFile.Text = "Обновить файлы";
             this.RefreshFile.UseVisualStyleBackColor = true;
@@ -201,12 +203,12 @@
             this.SeeFile.AutoSize = true;
             this.SeeFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SeeFile.Depth = 0;
-            this.SeeFile.Location = new System.Drawing.Point(13, 110);
-            this.SeeFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SeeFile.Location = new System.Drawing.Point(17, 135);
+            this.SeeFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.SeeFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.SeeFile.Name = "SeeFile";
             this.SeeFile.Primary = false;
-            this.SeeFile.Size = new System.Drawing.Size(146, 36);
+            this.SeeFile.Size = new System.Drawing.Size(181, 36);
             this.SeeFile.TabIndex = 5;
             this.SeeFile.Text = "Посмотреть файл";
             this.SeeFile.UseVisualStyleBackColor = true;
@@ -217,12 +219,12 @@
             this.Down.AutoSize = true;
             this.Down.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Down.Depth = 0;
-            this.Down.Location = new System.Drawing.Point(12, 158);
-            this.Down.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Down.Location = new System.Drawing.Point(16, 194);
+            this.Down.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Down.MouseState = MaterialSkin.MouseState.HOVER;
             this.Down.Name = "Down";
             this.Down.Primary = false;
-            this.Down.Size = new System.Drawing.Size(117, 36);
+            this.Down.Size = new System.Drawing.Size(145, 36);
             this.Down.TabIndex = 6;
             this.Down.Text = "Скачать файл";
             this.Down.UseVisualStyleBackColor = true;
@@ -233,12 +235,12 @@
             this.AddFile.AutoSize = true;
             this.AddFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddFile.Depth = 0;
-            this.AddFile.Location = new System.Drawing.Point(0, 4);
-            this.AddFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AddFile.Location = new System.Drawing.Point(0, 5);
+            this.AddFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.AddFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddFile.Name = "AddFile";
             this.AddFile.Primary = false;
-            this.AddFile.Size = new System.Drawing.Size(128, 36);
+            this.AddFile.Size = new System.Drawing.Size(158, 36);
             this.AddFile.TabIndex = 7;
             this.AddFile.Text = "Добавить файл \r\n";
             this.AddFile.UseVisualStyleBackColor = true;
@@ -249,12 +251,12 @@
             this.DeleteFile.AutoSize = true;
             this.DeleteFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DeleteFile.Depth = 0;
-            this.DeleteFile.Location = new System.Drawing.Point(1, 102);
-            this.DeleteFile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DeleteFile.Location = new System.Drawing.Point(1, 126);
+            this.DeleteFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.DeleteFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteFile.Name = "DeleteFile";
             this.DeleteFile.Primary = false;
-            this.DeleteFile.Size = new System.Drawing.Size(119, 36);
+            this.DeleteFile.Size = new System.Drawing.Size(147, 36);
             this.DeleteFile.TabIndex = 8;
             this.DeleteFile.Text = "Удалить файл";
             this.DeleteFile.UseVisualStyleBackColor = true;
@@ -265,12 +267,12 @@
             this.SeeUser.AutoSize = true;
             this.SeeUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SeeUser.Depth = 0;
-            this.SeeUser.Location = new System.Drawing.Point(2, 198);
-            this.SeeUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SeeUser.Location = new System.Drawing.Point(3, 244);
+            this.SeeUser.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.SeeUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.SeeUser.Name = "SeeUser";
             this.SeeUser.Primary = false;
-            this.SeeUser.Size = new System.Drawing.Size(223, 36);
+            this.SeeUser.Size = new System.Drawing.Size(277, 36);
             this.SeeUser.TabIndex = 9;
             this.SeeUser.Text = "Посмотреть пользователей";
             this.SeeUser.UseVisualStyleBackColor = true;
@@ -281,12 +283,12 @@
             this.Sync.AutoSize = true;
             this.Sync.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sync.Depth = 0;
-            this.Sync.Location = new System.Drawing.Point(2, 150);
-            this.Sync.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Sync.Location = new System.Drawing.Point(3, 185);
+            this.Sync.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync.Name = "Sync";
             this.Sync.Primary = false;
-            this.Sync.Size = new System.Drawing.Size(133, 36);
+            this.Sync.Size = new System.Drawing.Size(164, 36);
             this.Sync.TabIndex = 10;
             this.Sync.Text = "Синхронизация";
             this.Sync.UseVisualStyleBackColor = true;
@@ -297,12 +299,12 @@
             this.Upload.AutoSize = true;
             this.Upload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Upload.Depth = 0;
-            this.Upload.Location = new System.Drawing.Point(0, 52);
-            this.Upload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Upload.Location = new System.Drawing.Point(0, 64);
+            this.Upload.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Upload.MouseState = MaterialSkin.MouseState.HOVER;
             this.Upload.Name = "Upload";
             this.Upload.Primary = false;
-            this.Upload.Size = new System.Drawing.Size(132, 36);
+            this.Upload.Size = new System.Drawing.Size(164, 36);
             this.Upload.TabIndex = 11;
             this.Upload.Text = "Загрузить файл";
             this.Upload.UseVisualStyleBackColor = true;
@@ -315,9 +317,10 @@
             this.Panel1.Controls.Add(this.DeleteFile);
             this.Panel1.Controls.Add(this.Sync);
             this.Panel1.Controls.Add(this.SeeUser);
-            this.Panel1.Location = new System.Drawing.Point(12, 206);
+            this.Panel1.Location = new System.Drawing.Point(16, 254);
+            this.Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(225, 230);
+            this.Panel1.Size = new System.Drawing.Size(300, 283);
             this.Panel1.TabIndex = 12;
             // 
             // dgvUser
@@ -326,9 +329,10 @@
             this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dgvUser.Location = new System.Drawing.Point(810, 64);
+            this.dgvUser.Location = new System.Drawing.Point(1080, 79);
+            this.dgvUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUser.Name = "dgvUser";
-            this.dgvUser.Size = new System.Drawing.Size(240, 397);
+            this.dgvUser.Size = new System.Drawing.Size(320, 489);
             this.dgvUser.TabIndex = 13;
             // 
             // Column1
@@ -344,23 +348,25 @@
             // cbUserId
             // 
             this.cbUserId.FormattingEnabled = true;
-            this.cbUserId.Location = new System.Drawing.Point(1056, 92);
+            this.cbUserId.Location = new System.Drawing.Point(1408, 113);
+            this.cbUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbUserId.Name = "cbUserId";
-            this.cbUserId.Size = new System.Drawing.Size(121, 21);
+            this.cbUserId.Size = new System.Drawing.Size(160, 24);
             this.cbUserId.TabIndex = 15;
             // 
             // materialSingleLineTextField1
             // 
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(1055, 67);
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(1407, 82);
+            this.materialSingleLineTextField1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
             this.materialSingleLineTextField1.PasswordChar = '\0';
             this.materialSingleLineTextField1.SelectedText = "";
             this.materialSingleLineTextField1.SelectionLength = 0;
             this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(121, 23);
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(161, 28);
             this.materialSingleLineTextField1.TabIndex = 16;
             this.materialSingleLineTextField1.Text = "ID пользователя";
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
@@ -370,12 +376,12 @@
             this.DeleteUser.AutoSize = true;
             this.DeleteUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DeleteUser.Depth = 0;
-            this.DeleteUser.Location = new System.Drawing.Point(1057, 120);
-            this.DeleteUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DeleteUser.Location = new System.Drawing.Point(1409, 148);
+            this.DeleteUser.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.DeleteUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteUser.Name = "DeleteUser";
             this.DeleteUser.Primary = false;
-            this.DeleteUser.Size = new System.Drawing.Size(76, 36);
+            this.DeleteUser.Size = new System.Drawing.Size(94, 36);
             this.DeleteUser.TabIndex = 17;
             this.DeleteUser.Text = "Удалить";
             this.DeleteUser.UseVisualStyleBackColor = true;
@@ -386,12 +392,12 @@
             this.hideTable.AutoSize = true;
             this.hideTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hideTable.Depth = 0;
-            this.hideTable.Location = new System.Drawing.Point(1055, 168);
-            this.hideTable.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.hideTable.Location = new System.Drawing.Point(1407, 207);
+            this.hideTable.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.hideTable.MouseState = MaterialSkin.MouseState.HOVER;
             this.hideTable.Name = "hideTable";
             this.hideTable.Primary = false;
-            this.hideTable.Size = new System.Drawing.Size(67, 36);
+            this.hideTable.Size = new System.Drawing.Size(82, 36);
             this.hideTable.TabIndex = 18;
             this.hideTable.Text = "Скрыть";
             this.hideTable.UseVisualStyleBackColor = true;
@@ -399,9 +405,9 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 465);
+            this.ClientSize = new System.Drawing.Size(1076, 572);
             this.Controls.Add(this.hideTable);
             this.Controls.Add(this.DeleteUser);
             this.Controls.Add(this.materialSingleLineTextField1);
@@ -412,7 +418,9 @@
             this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
             this.Controls.Add(this.FileView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

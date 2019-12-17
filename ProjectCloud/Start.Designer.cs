@@ -1,6 +1,6 @@
 ﻿namespace ProjectCloud
 {
-    partial class Form1
+    partial class Start
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -73,11 +73,12 @@
             this.mtb.Controls.Add(this.tabPage2);
             this.mtb.Controls.Add(this.tabPage3);
             this.mtb.Depth = 0;
-            this.mtb.Location = new System.Drawing.Point(2, 81);
+            this.mtb.Location = new System.Drawing.Point(3, 100);
+            this.mtb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtb.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtb.Name = "mtb";
             this.mtb.SelectedIndex = 0;
-            this.mtb.Size = new System.Drawing.Size(488, 407);
+            this.mtb.Size = new System.Drawing.Size(651, 501);
             this.mtb.TabIndex = 0;
             // 
             // tabPage1
@@ -92,10 +93,11 @@
             this.tabPage1.Controls.Add(this.Alogin);
             this.tabPage1.Controls.Add(this.materialLabel2);
             this.tabPage1.Controls.Add(this.materialLabel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(480, 381);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(643, 472);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
             // 
@@ -104,12 +106,12 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(370, 365);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.Location = new System.Drawing.Point(493, 449);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(110, 36);
+            this.materialFlatButton1.Size = new System.Drawing.Size(136, 36);
             this.materialFlatButton1.TabIndex = 9;
             this.materialFlatButton1.Text = "О программе";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
@@ -120,12 +122,12 @@
             this.AuthOffline.AutoSize = true;
             this.AuthOffline.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AuthOffline.Depth = 0;
-            this.AuthOffline.Location = new System.Drawing.Point(166, 285);
-            this.AuthOffline.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AuthOffline.Location = new System.Drawing.Point(221, 351);
+            this.AuthOffline.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.AuthOffline.MouseState = MaterialSkin.MouseState.HOVER;
             this.AuthOffline.Name = "AuthOffline";
             this.AuthOffline.Primary = false;
-            this.AuthOffline.Size = new System.Drawing.Size(147, 36);
+            this.AuthOffline.Size = new System.Drawing.Size(182, 36);
             this.AuthOffline.TabIndex = 8;
             this.AuthOffline.Text = "Войти Автономно";
             this.AuthOffline.UseVisualStyleBackColor = true;
@@ -133,9 +135,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 113);
+            this.button1.Location = new System.Drawing.Point(44, 139);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -146,13 +149,13 @@
             this.Aremember.AutoSize = true;
             this.Aremember.Depth = 0;
             this.Aremember.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Aremember.Location = new System.Drawing.Point(166, 191);
+            this.Aremember.Location = new System.Drawing.Point(221, 235);
             this.Aremember.Margin = new System.Windows.Forms.Padding(0);
             this.Aremember.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Aremember.MouseState = MaterialSkin.MouseState.HOVER;
             this.Aremember.Name = "Aremember";
             this.Aremember.Ripple = true;
-            this.Aremember.Size = new System.Drawing.Size(138, 30);
+            this.Aremember.Size = new System.Drawing.Size(167, 30);
             this.Aremember.TabIndex = 6;
             this.Aremember.Text = "Запомнить меня";
             this.Aremember.UseVisualStyleBackColor = true;
@@ -161,14 +164,15 @@
             // 
             this.Apass.Depth = 0;
             this.Apass.Hint = "";
-            this.Apass.Location = new System.Drawing.Point(166, 156);
+            this.Apass.Location = new System.Drawing.Point(221, 192);
+            this.Apass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Apass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Apass.Name = "Apass";
             this.Apass.PasswordChar = '*';
             this.Apass.SelectedText = "";
             this.Apass.SelectionLength = 0;
             this.Apass.SelectionStart = 0;
-            this.Apass.Size = new System.Drawing.Size(127, 23);
+            this.Apass.Size = new System.Drawing.Size(169, 28);
             this.Apass.TabIndex = 4;
             this.Apass.UseSystemPasswordChar = false;
             // 
@@ -177,12 +181,12 @@
             this.Auth.AutoSize = true;
             this.Auth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Auth.Depth = 0;
-            this.Auth.Location = new System.Drawing.Point(166, 237);
-            this.Auth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Auth.Location = new System.Drawing.Point(221, 292);
+            this.Auth.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Auth.MouseState = MaterialSkin.MouseState.HOVER;
             this.Auth.Name = "Auth";
             this.Auth.Primary = false;
-            this.Auth.Size = new System.Drawing.Size(58, 36);
+            this.Auth.Size = new System.Drawing.Size(70, 36);
             this.Auth.TabIndex = 0;
             this.Auth.Text = "Войти";
             this.Auth.UseVisualStyleBackColor = true;
@@ -192,14 +196,15 @@
             // 
             this.Alogin.Depth = 0;
             this.Alogin.Hint = "";
-            this.Alogin.Location = new System.Drawing.Point(166, 69);
+            this.Alogin.Location = new System.Drawing.Point(221, 85);
+            this.Alogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Alogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.Alogin.Name = "Alogin";
             this.Alogin.PasswordChar = '\0';
             this.Alogin.SelectedText = "";
             this.Alogin.SelectionLength = 0;
             this.Alogin.SelectionStart = 0;
-            this.Alogin.Size = new System.Drawing.Size(127, 23);
+            this.Alogin.Size = new System.Drawing.Size(169, 28);
             this.Alogin.TabIndex = 3;
             this.Alogin.UseSystemPasswordChar = false;
             // 
@@ -209,10 +214,11 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(162, 113);
+            this.materialLabel2.Location = new System.Drawing.Point(216, 139);
+            this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(77, 24);
             this.materialLabel2.TabIndex = 2;
             this.materialLabel2.Text = "Пароль";
             // 
@@ -222,10 +228,11 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(162, 22);
+            this.materialLabel1.Location = new System.Drawing.Point(216, 27);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(131, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(161, 24);
             this.materialLabel1.TabIndex = 1;
             this.materialLabel1.Text = "Логин или Почта";
             // 
@@ -245,18 +252,20 @@
             this.tabPage2.Controls.Add(this.materialLabel5);
             this.tabPage2.Controls.Add(this.materialLabel4);
             this.tabPage2.Controls.Add(this.materialLabel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 381);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(643, 472);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регистрация";
             // 
             // resetCaptch
             // 
-            this.resetCaptch.Location = new System.Drawing.Point(294, 238);
+            this.resetCaptch.Location = new System.Drawing.Point(392, 293);
+            this.resetCaptch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.resetCaptch.Name = "resetCaptch";
-            this.resetCaptch.Size = new System.Drawing.Size(75, 23);
+            this.resetCaptch.Size = new System.Drawing.Size(100, 28);
             this.resetCaptch.TabIndex = 12;
             this.resetCaptch.Text = "обновить";
             this.resetCaptch.UseVisualStyleBackColor = true;
@@ -266,22 +275,24 @@
             // 
             this.captch.Depth = 0;
             this.captch.Hint = "";
-            this.captch.Location = new System.Drawing.Point(294, 286);
+            this.captch.Location = new System.Drawing.Point(392, 352);
+            this.captch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.captch.MouseState = MaterialSkin.MouseState.HOVER;
             this.captch.Name = "captch";
             this.captch.PasswordChar = '\0';
             this.captch.SelectedText = "";
             this.captch.SelectionLength = 0;
             this.captch.SelectionStart = 0;
-            this.captch.Size = new System.Drawing.Size(131, 23);
+            this.captch.Size = new System.Drawing.Size(175, 28);
             this.captch.TabIndex = 11;
             this.captch.UseSystemPasswordChar = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(294, 181);
+            this.pictureBox1.Location = new System.Drawing.Point(392, 223);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(175, 62);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -291,11 +302,10 @@
             this.hardpass.Depth = 0;
             this.hardpass.Font = new System.Drawing.Font("Roboto", 11F);
             this.hardpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.hardpass.Location = new System.Drawing.Point(290, 132);
-            this.hardpass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.hardpass.Location = new System.Drawing.Point(387, 162);
             this.hardpass.MouseState = MaterialSkin.MouseState.HOVER;
             this.hardpass.Name = "hardpass";
-            this.hardpass.Size = new System.Drawing.Size(0, 19);
+            this.hardpass.Size = new System.Drawing.Size(0, 24);
             this.hardpass.TabIndex = 9;
             // 
             // registr
@@ -303,12 +313,12 @@
             this.registr.AutoSize = true;
             this.registr.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.registr.Depth = 0;
-            this.registr.Location = new System.Drawing.Point(5, 330);
-            this.registr.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.registr.Location = new System.Drawing.Point(7, 406);
+            this.registr.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.registr.MouseState = MaterialSkin.MouseState.HOVER;
             this.registr.Name = "registr";
             this.registr.Primary = false;
-            this.registr.Size = new System.Drawing.Size(170, 36);
+            this.registr.Size = new System.Drawing.Size(210, 36);
             this.registr.TabIndex = 8;
             this.registr.Text = "Зарегистрироваться";
             this.registr.UseVisualStyleBackColor = true;
@@ -318,14 +328,15 @@
             // 
             this.Rmail.Depth = 0;
             this.Rmail.Hint = "";
-            this.Rmail.Location = new System.Drawing.Point(9, 286);
+            this.Rmail.Location = new System.Drawing.Point(12, 352);
+            this.Rmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Rmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rmail.Name = "Rmail";
             this.Rmail.PasswordChar = '\0';
             this.Rmail.SelectedText = "";
             this.Rmail.SelectionLength = 0;
             this.Rmail.SelectionStart = 0;
-            this.Rmail.Size = new System.Drawing.Size(265, 23);
+            this.Rmail.Size = new System.Drawing.Size(353, 28);
             this.Rmail.TabIndex = 7;
             this.Rmail.UseSystemPasswordChar = false;
             // 
@@ -333,14 +344,15 @@
             // 
             this.Rpass2.Depth = 0;
             this.Rpass2.Hint = "";
-            this.Rpass2.Location = new System.Drawing.Point(9, 208);
+            this.Rpass2.Location = new System.Drawing.Point(12, 256);
+            this.Rpass2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Rpass2.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass2.Name = "Rpass2";
             this.Rpass2.PasswordChar = '*';
             this.Rpass2.SelectedText = "";
             this.Rpass2.SelectionLength = 0;
             this.Rpass2.SelectionStart = 0;
-            this.Rpass2.Size = new System.Drawing.Size(265, 23);
+            this.Rpass2.Size = new System.Drawing.Size(353, 28);
             this.Rpass2.TabIndex = 6;
             this.Rpass2.UseSystemPasswordChar = false;
             // 
@@ -348,14 +360,15 @@
             // 
             this.Rpass.Depth = 0;
             this.Rpass.Hint = "";
-            this.Rpass.Location = new System.Drawing.Point(9, 132);
+            this.Rpass.Location = new System.Drawing.Point(12, 162);
+            this.Rpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Rpass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass.Name = "Rpass";
             this.Rpass.PasswordChar = '*';
             this.Rpass.SelectedText = "";
             this.Rpass.SelectionLength = 0;
             this.Rpass.SelectionStart = 0;
-            this.Rpass.Size = new System.Drawing.Size(265, 23);
+            this.Rpass.Size = new System.Drawing.Size(353, 28);
             this.Rpass.TabIndex = 5;
             this.Rpass.UseSystemPasswordChar = false;
             this.Rpass.TextChanged += new System.EventHandler(this.Rpass_TextChanged);
@@ -364,14 +377,15 @@
             // 
             this.Rlogin.Depth = 0;
             this.Rlogin.Hint = "";
-            this.Rlogin.Location = new System.Drawing.Point(6, 52);
+            this.Rlogin.Location = new System.Drawing.Point(8, 64);
+            this.Rlogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Rlogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rlogin.Name = "Rlogin";
             this.Rlogin.PasswordChar = '\0';
             this.Rlogin.SelectedText = "";
             this.Rlogin.SelectionLength = 0;
             this.Rlogin.SelectionStart = 0;
-            this.Rlogin.Size = new System.Drawing.Size(268, 23);
+            this.Rlogin.Size = new System.Drawing.Size(357, 28);
             this.Rlogin.TabIndex = 4;
             this.Rlogin.UseSystemPasswordChar = false;
             // 
@@ -381,10 +395,11 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(6, 257);
+            this.materialLabel6.Location = new System.Drawing.Point(8, 316);
+            this.materialLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(52, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(64, 24);
             this.materialLabel6.TabIndex = 3;
             this.materialLabel6.Text = "Почта";
             // 
@@ -394,10 +409,11 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(4, 170);
+            this.materialLabel5.Location = new System.Drawing.Point(5, 209);
+            this.materialLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(141, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(176, 24);
             this.materialLabel5.TabIndex = 2;
             this.materialLabel5.Text = "Повторить пароль";
             // 
@@ -407,10 +423,11 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(6, 96);
+            this.materialLabel4.Location = new System.Drawing.Point(8, 118);
+            this.materialLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(77, 24);
             this.materialLabel4.TabIndex = 1;
             this.materialLabel4.Text = "Пароль";
             // 
@@ -420,10 +437,11 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(6, 29);
+            this.materialLabel3.Location = new System.Drawing.Point(8, 36);
+            this.materialLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(53, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(64, 24);
             this.materialLabel3.TabIndex = 0;
             this.materialLabel3.Text = "Логин";
             // 
@@ -433,10 +451,11 @@
             this.tabPage3.Controls.Add(this.RestorePass);
             this.tabPage3.Controls.Add(this.restore);
             this.tabPage3.Controls.Add(this.materialLabel7);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(480, 381);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Size = new System.Drawing.Size(643, 472);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Восстановление пароля";
             // 
@@ -445,12 +464,12 @@
             this.RestorePass.AutoSize = true;
             this.RestorePass.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RestorePass.Depth = 0;
-            this.RestorePass.Location = new System.Drawing.Point(161, 131);
-            this.RestorePass.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RestorePass.Location = new System.Drawing.Point(215, 161);
+            this.RestorePass.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.RestorePass.MouseState = MaterialSkin.MouseState.HOVER;
             this.RestorePass.Name = "RestorePass";
             this.RestorePass.Primary = false;
-            this.RestorePass.Size = new System.Drawing.Size(120, 36);
+            this.RestorePass.Size = new System.Drawing.Size(148, 36);
             this.RestorePass.TabIndex = 2;
             this.RestorePass.Text = "Восстановить";
             this.RestorePass.UseVisualStyleBackColor = true;
@@ -460,14 +479,15 @@
             // 
             this.restore.Depth = 0;
             this.restore.Hint = "";
-            this.restore.Location = new System.Drawing.Point(161, 78);
+            this.restore.Location = new System.Drawing.Point(215, 96);
+            this.restore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.restore.MouseState = MaterialSkin.MouseState.HOVER;
             this.restore.Name = "restore";
             this.restore.PasswordChar = '\0';
             this.restore.SelectedText = "";
             this.restore.SelectionLength = 0;
             this.restore.SelectionStart = 0;
-            this.restore.Size = new System.Drawing.Size(127, 23);
+            this.restore.Size = new System.Drawing.Size(169, 28);
             this.restore.TabIndex = 1;
             this.restore.UseSystemPasswordChar = false;
             // 
@@ -477,10 +497,11 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(158, 39);
+            this.materialLabel7.Location = new System.Drawing.Point(211, 48);
+            this.materialLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(131, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(161, 24);
             this.materialLabel7.TabIndex = 0;
             this.materialLabel7.Text = "Почта или Логин";
             // 
@@ -488,11 +509,12 @@
             // 
             this.mtbSelect.BaseTabControl = this.mtb;
             this.mtbSelect.Depth = 0;
-            this.mtbSelect.Location = new System.Drawing.Point(2, 52);
-            this.mtbSelect.MaximumSize = new System.Drawing.Size(488, 23);
+            this.mtbSelect.Location = new System.Drawing.Point(3, 64);
+            this.mtbSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbSelect.MaximumSize = new System.Drawing.Size(651, 28);
             this.mtbSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtbSelect.Name = "mtbSelect";
-            this.mtbSelect.Size = new System.Drawing.Size(488, 23);
+            this.mtbSelect.Size = new System.Drawing.Size(651, 28);
             this.mtbSelect.TabIndex = 1;
             this.mtbSelect.Text = "materialTabSelector1";
             // 
@@ -502,16 +524,19 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 489);
+            this.ClientSize = new System.Drawing.Size(655, 602);
             this.Controls.Add(this.mtbSelect);
             this.Controls.Add(this.mtb);
-            this.MaximumSize = new System.Drawing.Size(491, 489);
-            this.MinimumSize = new System.Drawing.Size(491, 489);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(655, 602);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(655, 602);
+            this.Name = "Start";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);

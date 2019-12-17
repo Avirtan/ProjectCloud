@@ -49,11 +49,14 @@ namespace ProjectCloud
             if (User.staff == "1") SeeUser.Visible = false;
             if (User.Offline)
             {
+                SeeUser.Visible = false;
+                Panel1.Visible = false;
                 Down.Enabled = false;
                 Upload.Enabled = false;
                 Sync.Enabled = false;
                 SeeUser.Enabled = false;
                 contextMenuStrip1.Items[0].Dispose();
+                materialContextMenuStrip1.Items[1].Dispose();
             }
             if (!User.Offline) conn = Connection.GetDBConnection();
             try
@@ -163,7 +166,7 @@ namespace ProjectCloud
                 proc.StartInfo.UseShellExecute = true;
                 proc.Start();
             }
-            catch { }//(Exception ex) { MessageBox.Show(ex.Message); }
+            catch { MessageBox.Show("Выберете локальный файл"); }//(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Sync_Click(object sender, EventArgs e)
@@ -240,7 +243,7 @@ namespace ProjectCloud
                 }
                 else MessageBox.Show("Нет интернета или выбран локальный файл");
             }
-            catch { MessageBox.Show("Файл уже скачан"); }
+            catch { MessageBox.Show("Выберете  файл или файл уже скачан"); }
         }
 
         private void DeleteFolder()
@@ -368,7 +371,7 @@ namespace ProjectCloud
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 size = response.ContentLength;
                 response.Close();
-                MessageBox.Show("Размер: "+size.ToString()+"байт");
+                MessageBox.Show("Размер: "+ Math.Round(size / 8 / 1024 / 24.0, 2).ToString()+"мегабайт");
             }
             if (FileView.FocusedItem.Group.ToString() == "Локальные" )
             {
@@ -376,7 +379,7 @@ namespace ProjectCloud
                 {
                    size = zip[FileView.FocusedItem.Text].CompressedSize;
                 }
-                MessageBox.Show("Размер: " + size.ToString() + "байт");
+                MessageBox.Show("Размер: " + Math.Round(size/8/1024/24.0,2).ToString() + "мегабайт");
             }
         }
 

@@ -18,7 +18,7 @@ using Ionic.Zip;
 
 namespace ProjectCloud
 {
-    public partial class Form1 : MaterialForm
+    public partial class Start : MaterialForm
     {
         static class Password
         {
@@ -159,7 +159,7 @@ namespace ProjectCloud
         private MySqlConnection conn;
         private int flag = 0;
         private string textCaptch = String.Empty;
-        public Form1()
+        public Start()
         {
             InitializeComponent();
         }
@@ -249,7 +249,7 @@ namespace ProjectCloud
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Проверьте подключение к интернету");
             }
             finally
             {
@@ -303,7 +303,7 @@ namespace ProjectCloud
                         MessageBox.Show(error);
                 }
                 else
-                    MessageBox.Show("неверные данные, или неверная капча, проверьте подключение к интернету");
+                    MessageBox.Show("неверные данные(длина пароля больше 6 символов), или неверная капча, проверьте подключение к интернету");
 
             }
             catch 
@@ -340,7 +340,7 @@ namespace ProjectCloud
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Проверьте подключение к интернету или неверные данные");
             }
             finally
             {
@@ -389,7 +389,7 @@ namespace ProjectCloud
                 try{File.Delete("1.txt");}
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
                 }
             }
             this.Hide();
@@ -409,7 +409,7 @@ namespace ProjectCloud
                             User.Offline = true;
                             Main form2 = new Main();
                             form2.Show();
-                            this.Dispose();
+                            this.Hide();
                         }
                     }
                 }
@@ -426,7 +426,7 @@ namespace ProjectCloud
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Сначала войдите и поставьте галочку запомнить меня");
             }
         }
 
