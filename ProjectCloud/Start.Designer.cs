@@ -74,7 +74,7 @@
             this.mtb.Controls.Add(this.tabPage3);
             this.mtb.Depth = 0;
             this.mtb.Location = new System.Drawing.Point(3, 100);
-            this.mtb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtb.Margin = new System.Windows.Forms.Padding(4);
             this.mtb.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtb.Name = "mtb";
             this.mtb.SelectedIndex = 0;
@@ -94,9 +94,9 @@
             this.tabPage1.Controls.Add(this.materialLabel2);
             this.tabPage1.Controls.Add(this.materialLabel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(643, 472);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизация";
@@ -136,12 +136,13 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(44, 139);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Aremember
@@ -165,7 +166,7 @@
             this.Apass.Depth = 0;
             this.Apass.Hint = "";
             this.Apass.Location = new System.Drawing.Point(221, 192);
-            this.Apass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Apass.Margin = new System.Windows.Forms.Padding(4);
             this.Apass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Apass.Name = "Apass";
             this.Apass.PasswordChar = '*';
@@ -197,7 +198,7 @@
             this.Alogin.Depth = 0;
             this.Alogin.Hint = "";
             this.Alogin.Location = new System.Drawing.Point(221, 85);
-            this.Alogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Alogin.Margin = new System.Windows.Forms.Padding(4);
             this.Alogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.Alogin.Name = "Alogin";
             this.Alogin.PasswordChar = '\0';
@@ -253,9 +254,9 @@
             this.tabPage2.Controls.Add(this.materialLabel4);
             this.tabPage2.Controls.Add(this.materialLabel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(643, 472);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регистрация";
@@ -263,7 +264,7 @@
             // resetCaptch
             // 
             this.resetCaptch.Location = new System.Drawing.Point(392, 293);
-            this.resetCaptch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resetCaptch.Margin = new System.Windows.Forms.Padding(4);
             this.resetCaptch.Name = "resetCaptch";
             this.resetCaptch.Size = new System.Drawing.Size(100, 28);
             this.resetCaptch.TabIndex = 12;
@@ -276,7 +277,7 @@
             this.captch.Depth = 0;
             this.captch.Hint = "";
             this.captch.Location = new System.Drawing.Point(392, 352);
-            this.captch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.captch.Margin = new System.Windows.Forms.Padding(4);
             this.captch.MouseState = MaterialSkin.MouseState.HOVER;
             this.captch.Name = "captch";
             this.captch.PasswordChar = '\0';
@@ -290,7 +291,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(392, 223);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 62);
             this.pictureBox1.TabIndex = 10;
@@ -329,7 +330,7 @@
             this.Rmail.Depth = 0;
             this.Rmail.Hint = "";
             this.Rmail.Location = new System.Drawing.Point(12, 352);
-            this.Rmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Rmail.Margin = new System.Windows.Forms.Padding(4);
             this.Rmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rmail.Name = "Rmail";
             this.Rmail.PasswordChar = '\0';
@@ -345,7 +346,7 @@
             this.Rpass2.Depth = 0;
             this.Rpass2.Hint = "";
             this.Rpass2.Location = new System.Drawing.Point(12, 256);
-            this.Rpass2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Rpass2.Margin = new System.Windows.Forms.Padding(4);
             this.Rpass2.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass2.Name = "Rpass2";
             this.Rpass2.PasswordChar = '*';
@@ -361,7 +362,7 @@
             this.Rpass.Depth = 0;
             this.Rpass.Hint = "";
             this.Rpass.Location = new System.Drawing.Point(12, 162);
-            this.Rpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Rpass.Margin = new System.Windows.Forms.Padding(4);
             this.Rpass.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rpass.Name = "Rpass";
             this.Rpass.PasswordChar = '*';
@@ -378,7 +379,7 @@
             this.Rlogin.Depth = 0;
             this.Rlogin.Hint = "";
             this.Rlogin.Location = new System.Drawing.Point(8, 64);
-            this.Rlogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Rlogin.Margin = new System.Windows.Forms.Padding(4);
             this.Rlogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.Rlogin.Name = "Rlogin";
             this.Rlogin.PasswordChar = '\0';
@@ -452,9 +453,9 @@
             this.tabPage3.Controls.Add(this.restore);
             this.tabPage3.Controls.Add(this.materialLabel7);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(643, 472);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Восстановление пароля";
@@ -480,7 +481,7 @@
             this.restore.Depth = 0;
             this.restore.Hint = "";
             this.restore.Location = new System.Drawing.Point(215, 96);
-            this.restore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.restore.Margin = new System.Windows.Forms.Padding(4);
             this.restore.MouseState = MaterialSkin.MouseState.HOVER;
             this.restore.Name = "restore";
             this.restore.PasswordChar = '\0';
@@ -510,7 +511,7 @@
             this.mtbSelect.BaseTabControl = this.mtb;
             this.mtbSelect.Depth = 0;
             this.mtbSelect.Location = new System.Drawing.Point(3, 64);
-            this.mtbSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbSelect.Margin = new System.Windows.Forms.Padding(4);
             this.mtbSelect.MaximumSize = new System.Drawing.Size(651, 28);
             this.mtbSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtbSelect.Name = "mtbSelect";
@@ -531,7 +532,7 @@
             this.ClientSize = new System.Drawing.Size(655, 602);
             this.Controls.Add(this.mtbSelect);
             this.Controls.Add(this.mtb);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(655, 602);
             this.MinimizeBox = false;
