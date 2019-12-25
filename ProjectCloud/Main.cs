@@ -379,7 +379,7 @@ namespace ProjectCloud
                 {
                    size = zip[FileView.FocusedItem.Text].CompressedSize;
                 }
-                MessageBox.Show("Размер: " + Math.Round(size/8/1024/24.0,2).ToString() + "мегабайт");
+                MessageBox.Show("Размер: " + Math.Round(size/8/1024/24.0/1.5,2).ToString() + "мегабайт");
             }
         }
 

@@ -134,12 +134,19 @@ namespace ProjectCloud
 
             //Добавим немного помех
             //Линии из углов
-            g.DrawLine(colorpens[rnd.Next(colorpens.Length)],
+            int i2 = 0;
+            for(int i = 0; i < rnd.Next(7, 10);i++)
+            {
+                g.DrawLine(colorpens[rnd.Next(colorpens.Length)],
+                new Point(i+rnd.Next(20,100), 0),
+                new Point(i+ rnd.Next(20, 100), Height));
+            }
+          /*  g.DrawLine(colorpens[rnd.Next(colorpens.Length)],
             new Point(0, 0),
             new Point(Width - 1, Height - 1));
             g.DrawLine(colorpens[rnd.Next(colorpens.Length)],
             new Point(0, Height - 1),
-            new Point(Width - 1, 0));
+            new Point(Width - 1, 0));*/
 
             //Белые точки
             for (int i = 0; i < Width; ++i)
