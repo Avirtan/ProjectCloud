@@ -310,7 +310,7 @@ namespace ProjectCloud
                         MessageBox.Show(error);
                 }
                 else
-                    MessageBox.Show("неверные данные(длина пароля больше 6 символов), или неверная капча, проверьте подключение к интернету");
+                    MessageBox.Show("заполнены не все поля, или неверно заполнено одно из полей");
 
             }
             catch 

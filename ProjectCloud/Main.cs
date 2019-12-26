@@ -49,6 +49,8 @@ namespace ProjectCloud
             if (User.staff == "1") SeeUser.Visible = false;
             if (User.Offline)
             {
+                RefreshFile.Visible = false;
+                Down.Visible = false;
                 SeeUser.Visible = false;
                 Panel1.Visible = false;
                 Down.Enabled = false;
@@ -59,14 +61,20 @@ namespace ProjectCloud
                 materialContextMenuStrip1.Items[1].Dispose();
             }
             if (!User.Offline) conn = Connection.GetDBConnection();
+            ZipFile zip = new ZipFile();
             try
             {
-                ZipFile zip = ZipFile.Read("Cloud.zip");
+                 zip = ZipFile.Read("Cloud.zip");
             }
             catch
             {
-                ZipFile zip = new ZipFile();
+                zip = new ZipFile();
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.Level9;
+                zip.Password = "12345";
                 zip.Save("Cloud.zip");
+                zip.CompressionMethod = CompressionMethod.BZip2;
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
+                zip.Save();
             }
             RefreshButtonClick();
         }
@@ -82,7 +90,7 @@ namespace ProjectCloud
             try
             {
                 FileView.Items.Clear();
-                if (CheckNetwork())
+                if (CheckNetwork() && !User.Offline )
                 {
                     ArrayList listFileFtp = GetDirectoryList();
                     RefreshViewList(listFileFtp, 1, 1);
@@ -103,13 +111,22 @@ namespace ProjectCloud
             {
                 if (FileView.FocusedItem.Group.ToString() == "Глобальные" && CheckNetwork())
                 {
-                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl + FileView.FocusedItem.Text);
-                    request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    request.Method = WebRequestMethods.Ftp.DeleteFile;
-                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                    response.Close();
-                    RefreshButtonClick();
+                    try
+                    {
+                        FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl + FileView.FocusedItem.Text);
+                        request.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                        request.Method = WebRequestMethods.Ftp.DeleteFile;
+                        FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                        response.Close();
+                        RefreshButtonClick();
+                    }
+                    catch (Exception ex) { }
                 }
+                if(FileView.FocusedItem.Group.ToString() == "Глобальные" && !CheckNetwork())
+                {
+                    MessageBox.Show(" проверьте подключение к интернету");
+                }
+
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
                     using (ZipFile zip = ZipFile.Read("Cloud.zip"))
@@ -120,7 +137,7 @@ namespace ProjectCloud
                     RefreshButtonClick();
                 }
             }
-            catch{}
+            catch { } 
         }
 
         private void AddFile_Click(object sender, EventArgs e)
@@ -135,7 +152,11 @@ namespace ProjectCloud
                 string encriptFile = "Temp\\" + filename.Split('\\')[filename.Split('\\').Length - 1];
                 RijndaelHelper.EncryptFile(filename, encriptFile, key, iv);
                 zip.Password = pass;
+                zip.CompressionMethod = CompressionMethod.BZip2;
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                 zip.AddFile(encriptFile, "");
+                zip.CompressionMethod = CompressionMethod.BZip2;
+                zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                 zip.Save();
                 RefreshButtonClick();
             }
@@ -212,6 +233,7 @@ namespace ProjectCloud
                         ZipFile zp = new ZipFile("Cloud.zip");
                         zp.AlternateEncodingUsage = ZipOption.Always;
                         zp.AlternateEncoding = Encoding.UTF8;
+                        zp.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                         zp.Password = pass;
                         zp.AddFile(o.ToString(),"");
                         zp.Save();
@@ -235,6 +257,7 @@ namespace ProjectCloud
                     client.DownloadFile(ftpUrl + FileView.FocusedItem.Text,FileView.FocusedItem.Text);
                     ZipFile zip = ZipFile.Read("Cloud.zip");
                     zip.AlternateEncoding = Encoding.UTF8;
+                    zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                     zip.Password = pass;
                     zip.AddFile(FileView.FocusedItem.Text, "");
                     zip.Save();
@@ -298,6 +321,10 @@ namespace ProjectCloud
                     client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
                     client.DownloadFile(ftpUrl + FileView.FocusedItem.Text, @"Temp\" + FileView.FocusedItem.Text);
                     RijndaelHelper.DecryptFile(@"Temp\" + FileView.FocusedItem.Text, path + @"\" + FileView.FocusedItem.Text, key, iv);
+                }
+                if (FileView.FocusedItem.Group.ToString() == "Глобальные" && !CheckNetwork())
+                {
+                    MessageBox.Show(" проверьте подключение к интернету");
                 }
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
@@ -373,6 +400,10 @@ namespace ProjectCloud
                 response.Close();
                 MessageBox.Show("Размер: "+ Math.Round(size / 8 / 1024 / 24.0, 2).ToString()+"мегабайт");
             }
+            if (FileView.FocusedItem.Group.ToString() == "Глобальные" && !CheckNetwork())
+            {
+                MessageBox.Show(" проверьте подключение к интернету");
+            }
             if (FileView.FocusedItem.Group.ToString() == "Локальные" )
             {
                 using (ZipFile zip = ZipFile.Read("Cloud.zip"))
@@ -387,27 +418,30 @@ namespace ProjectCloud
         {
             try
             {
-                this.Size = new Size(1175, 465);
-                conn.Open();
-                string sql = "SELECT * FROM user ";
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = command.ExecuteReader();
-                int i = 0;
-                dgvUser.Rows.Clear();
-                cbUserId.Items.Clear();
-                dgvUser.AllowUserToResizeColumns = false;
-                dgvUser.AllowUserToResizeRows = false;
-                while (reader.Read())
+                if (CheckNetwork())
                 {
-                    dgvUser.Rows.Add();
-                    dgvUser.Rows[i].Cells[0].Value = reader[0].ToString();
-                    dgvUser.Rows[i].Cells[1].Value = reader[2].ToString();
-                    dgvUser.Rows[i].ReadOnly = true;
-                    cbUserId.Items.Add(reader[0].ToString());
-                    i++;
-                }
-                if (cbUserId.Items.Count > 0) cbUserId.SelectedIndex = 0;
-                conn.Close();
+                    this.Size = new Size(1175, 465);
+                    conn.Open();
+                    string sql = "SELECT * FROM user ";
+                    MySqlCommand command = new MySqlCommand(sql, conn);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    int i = 0;
+                    dgvUser.Rows.Clear();
+                    cbUserId.Items.Clear();
+                    dgvUser.AllowUserToResizeColumns = false;
+                    dgvUser.AllowUserToResizeRows = false;
+                    while (reader.Read())
+                    {
+                        dgvUser.Rows.Add();
+                        dgvUser.Rows[i].Cells[0].Value = reader[0].ToString();
+                        dgvUser.Rows[i].Cells[1].Value = reader[2].ToString();
+                        dgvUser.Rows[i].ReadOnly = true;
+                        cbUserId.Items.Add(reader[0].ToString());
+                        i++;
+                    }
+                    if (cbUserId.Items.Count > 0) cbUserId.SelectedIndex = 0;
+                    conn.Close();
+                }else MessageBox.Show(" проверьте подключение к интернету");
             }
             catch { }//catch(Exception ex) { MessageBox.Show(ex.Message); conn.Close(); } 
         }
