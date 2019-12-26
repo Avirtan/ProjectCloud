@@ -60,6 +60,7 @@
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.DeleteUser = new MaterialSkin.Controls.MaterialFlatButton();
             this.hideTable = new MaterialSkin.Controls.MaterialFlatButton();
+            this.addFileCloud = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialContextMenuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -235,14 +236,14 @@
             this.AddFile.AutoSize = true;
             this.AddFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddFile.Depth = 0;
-            this.AddFile.Location = new System.Drawing.Point(0, 5);
+            this.AddFile.Location = new System.Drawing.Point(5, 7);
             this.AddFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.AddFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddFile.Name = "AddFile";
             this.AddFile.Primary = false;
             this.AddFile.Size = new System.Drawing.Size(158, 36);
             this.AddFile.TabIndex = 7;
-            this.AddFile.Text = "Добавить файл \r\n";
+            this.AddFile.Text = "Добавить файл \r\nв архив";
             this.AddFile.UseVisualStyleBackColor = true;
             this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
             // 
@@ -251,7 +252,7 @@
             this.DeleteFile.AutoSize = true;
             this.DeleteFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DeleteFile.Depth = 0;
-            this.DeleteFile.Location = new System.Drawing.Point(1, 126);
+            this.DeleteFile.Location = new System.Drawing.Point(5, 107);
             this.DeleteFile.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.DeleteFile.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteFile.Name = "DeleteFile";
@@ -267,7 +268,7 @@
             this.SeeUser.AutoSize = true;
             this.SeeUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SeeUser.Depth = 0;
-            this.SeeUser.Location = new System.Drawing.Point(3, 244);
+            this.SeeUser.Location = new System.Drawing.Point(3, 266);
             this.SeeUser.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.SeeUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.SeeUser.Name = "SeeUser";
@@ -283,7 +284,7 @@
             this.Sync.AutoSize = true;
             this.Sync.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Sync.Depth = 0;
-            this.Sync.Location = new System.Drawing.Point(3, 185);
+            this.Sync.Location = new System.Drawing.Point(5, 216);
             this.Sync.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Sync.MouseState = MaterialSkin.MouseState.HOVER;
             this.Sync.Name = "Sync";
@@ -299,7 +300,7 @@
             this.Upload.AutoSize = true;
             this.Upload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Upload.Depth = 0;
-            this.Upload.Location = new System.Drawing.Point(0, 64);
+            this.Upload.Location = new System.Drawing.Point(5, 57);
             this.Upload.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Upload.MouseState = MaterialSkin.MouseState.HOVER;
             this.Upload.Name = "Upload";
@@ -312,15 +313,16 @@
             // 
             // Panel1
             // 
+            this.Panel1.Controls.Add(this.addFileCloud);
             this.Panel1.Controls.Add(this.Upload);
             this.Panel1.Controls.Add(this.AddFile);
             this.Panel1.Controls.Add(this.DeleteFile);
             this.Panel1.Controls.Add(this.Sync);
             this.Panel1.Controls.Add(this.SeeUser);
             this.Panel1.Location = new System.Drawing.Point(16, 254);
-            this.Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(300, 283);
+            this.Panel1.Size = new System.Drawing.Size(300, 313);
             this.Panel1.TabIndex = 12;
             // 
             // dgvUser
@@ -330,7 +332,7 @@
             this.Column1,
             this.Column2});
             this.dgvUser.Location = new System.Drawing.Point(1080, 79);
-            this.dgvUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUser.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.Size = new System.Drawing.Size(320, 489);
             this.dgvUser.TabIndex = 13;
@@ -349,7 +351,7 @@
             // 
             this.cbUserId.FormattingEnabled = true;
             this.cbUserId.Location = new System.Drawing.Point(1408, 113);
-            this.cbUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbUserId.Margin = new System.Windows.Forms.Padding(4);
             this.cbUserId.Name = "cbUserId";
             this.cbUserId.Size = new System.Drawing.Size(160, 24);
             this.cbUserId.TabIndex = 15;
@@ -359,7 +361,7 @@
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "";
             this.materialSingleLineTextField1.Location = new System.Drawing.Point(1407, 82);
-            this.materialSingleLineTextField1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialSingleLineTextField1.Margin = new System.Windows.Forms.Padding(4);
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
             this.materialSingleLineTextField1.PasswordChar = '\0';
@@ -403,6 +405,22 @@
             this.hideTable.UseVisualStyleBackColor = true;
             this.hideTable.Click += new System.EventHandler(this.hideTable_Click);
             // 
+            // addFileCloud
+            // 
+            this.addFileCloud.AutoSize = true;
+            this.addFileCloud.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addFileCloud.Depth = 0;
+            this.addFileCloud.Location = new System.Drawing.Point(5, 157);
+            this.addFileCloud.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.addFileCloud.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addFileCloud.Name = "addFileCloud";
+            this.addFileCloud.Primary = false;
+            this.addFileCloud.Size = new System.Drawing.Size(158, 36);
+            this.addFileCloud.TabIndex = 12;
+            this.addFileCloud.Text = "Добавить файл \r\nв облако";
+            this.addFileCloud.UseVisualStyleBackColor = true;
+            this.addFileCloud.Click += new System.EventHandler(this.addFileCloud_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,7 +436,7 @@
             this.Controls.Add(this.SeeFile);
             this.Controls.Add(this.RefreshFile);
             this.Controls.Add(this.FileView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -466,5 +484,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private MaterialSkin.Controls.MaterialFlatButton hideTable;
+        private MaterialSkin.Controls.MaterialFlatButton addFileCloud;
     }
 }

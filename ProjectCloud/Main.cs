@@ -71,10 +71,9 @@ namespace ProjectCloud
                 zip = new ZipFile();
                 zip.CompressionLevel = Ionic.Zlib.CompressionLevel.Level9;
                 zip.Password = "12345";
-                zip.Save("Cloud.zip");
                 zip.CompressionMethod = CompressionMethod.BZip2;
                 zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
-                zip.Save();
+                zip.Save("Cloud.zip");
             }
             RefreshButtonClick();
         }
@@ -280,18 +279,18 @@ namespace ProjectCloud
         {
             try
             {
-                if (CheckNetwork() && FileView.FocusedItem.Group.ToString() == "Глобальные")
-                {
-                    OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
-                    if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
-                    string filename = openFileDialog1.FileName;
-                    string name = filename.Split('\\')[filename.Split('\\').Length - 1];
-                    WebClient client = new WebClient();
-                    client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
-                    RijndaelHelper.EncryptFile(filename, @"Temp\" + name, key, iv);
-                    client.UploadFile(ftpUrl + name, @"Temp\" + name);
-                    RefreshButtonClick();
-                }
+                //if (CheckNetwork() && FileView.FocusedItem.Group.ToString() == "Глобальные")
+                //{
+                //    OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
+                //    if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+                //    string filename = openFileDialog1.FileName;
+                //    string name = filename.Split('\\')[filename.Split('\\').Length - 1];
+                //    WebClient client = new WebClient();
+                //    client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                //    RijndaelHelper.EncryptFile(filename, @"Temp\" + name, key, iv);
+                //    client.UploadFile(ftpUrl + name, @"Temp\" + name);
+                //    RefreshButtonClick();
+                //}
                 if (FileView.FocusedItem.Group.ToString() == "Локальные")
                 {
                     WebClient client = new WebClient();
@@ -303,7 +302,7 @@ namespace ProjectCloud
                     }
                     RefreshButtonClick();
                 }
-                else MessageBox.Show("Нет интернета или выбран локальный файл");
+                if(!CheckNetwork()) MessageBox.Show("Нет интернета");
             }
             catch { }//(Exception ex){ MessageBox.Show(ex.Message); }
         }
@@ -484,6 +483,23 @@ namespace ProjectCloud
         private void hideTable_Click(object sender, EventArgs e)
         {
             this.Size = new Size(807, 465);
+        }
+
+        private void addFileCloud_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "All files|*.*", ValidateNames = true, Multiselect = false };
+                if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+                string filename = openFileDialog1.FileName;
+                string name = filename.Split('\\')[filename.Split('\\').Length - 1];
+                WebClient client = new WebClient();
+                client.Credentials = new NetworkCredential(ftpLogin, ftpPass);
+                RijndaelHelper.EncryptFile(filename, @"Temp\" + name, key, iv);
+                client.UploadFile(ftpUrl + name, @"Temp\" + name);
+                RefreshButtonClick();
+            }
+            catch { MessageBox.Show("Нет интернета"); }
         }
     }
 }
